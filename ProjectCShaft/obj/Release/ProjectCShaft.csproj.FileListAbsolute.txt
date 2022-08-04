@@ -1,0 +1,5 @@
+D:\C#\ProjectCShaft\ProjectCShaft\obj\Release\ProjectCShaft.frmLogin.resources
+D:\C#\ProjectCShaft\ProjectCShaft\obj\Release\ProjectCShaft.frmMain.resources
+D:\C#\ProjectCShaft\ProjectCShaft\obj\Release\ProjectCShaft.Properties.Resources.resources
+D:\C#\ProjectCShaft\ProjectCShaft\obj\Release\ProjectCShaft.csproj.GenerateResource.cache
+D:\C#\ProjectCShaft\ProjectCShaft\obj\Release\ProjectCShaft.csproj.CoreCompileInputs.cache
