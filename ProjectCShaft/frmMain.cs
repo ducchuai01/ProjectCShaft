@@ -28,16 +28,50 @@ namespace ProjectCShaft
             ShowDetailMenu();
             ShowAllTable(); 
             ShowDetailTable();
-            ShowMenuIntable();
+            ShowMenuInTable();
             ShowMenu();
+            SumPrice();
+            ShowOrderMenuInTable();
+            ShowDetalOrderMenu();
         }
 
-       
+        private void ShowDetalOrderMenu()
+        {
+            if (dgOrderMenu.CurrentRow != null)
+            {
+                var row = dgOrderMenu.CurrentRow;
+                //hiển thị lên form
+                txtNMenu.Text = row.Cells[0].Value.ToString();
+                txtDV.Text = row.Cells[1].Value.ToString();
+                txtPMenu.Text = row.Cells[2].Value.ToString();
+                nbQuantity.Value = decimal.Parse(row.Cells[3].Value.ToString());
+                txtSumPrice.Text = row.Cells[4].Value.ToString();
+                edit = true;
+            }
+        }
 
-        private void ShowMenuIntable()
+        private void ShowOrderMenuInTable()
+        {
+            var order_menus = from om in db.OrderMenus select new { om.nameMenuOrder, om.unitMenuOrder, om.priceMenuOrder, om.quantity, om.sumPrice };
+            dgOrderMenu.DataSource = order_menus.ToList();
+        }
+
+        private void SumPrice()
+        {
+            if(!string.IsNullOrEmpty(txtPMenu.Text))
+            {
+                decimal tien = decimal.Parse(txtPMenu.Text);
+                decimal sumPrice = tien * nbQuantity.Value;
+                txtSumPrice.Text = sumPrice.ToString();
+            }
+            
+        }
+
+        private void ShowMenuInTable()
         {
             var menus = from m in db.Menus select new { m.idMenu, m.nameMenu, m.unitMenu, m.priceMenu, m.descriptionMenu };
-            dgMenuTable.DataSource = menus;
+            dgMenuTable.DataSource = menus.ToList();
+
         }
 
         private void CountTable()
@@ -47,7 +81,7 @@ namespace ProjectCShaft
             int y = 5;
             int z = 1;
 
-            foreach (var item in db.Table_Bidas.OrderByDescending(m => m.nameTable))
+            foreach (var item in db.Table_Bidas.OrderByDescending(m => m.idTable))
             {
                 if (i >= 13)
                 {
@@ -61,20 +95,33 @@ namespace ProjectCShaft
                     x = i * 30 + 80*i;
                 }
                 i++;
-                Button button = new Button() { Width = 80, Height = 80,Location = new Point(x,y) ,Text = item.nameTable,BackColor = Color.Green,ForeColor = Color.White};
+                Button button = new Button() { Width = 80, Height = 80,Location = new Point(x,y) ,Text = item.nameTable,BackColor = Color.Green,ForeColor = Color.White,Tag = item.idTable.ToString()};
+                button.Click += Button_Click;
                 if (item.statusTable == false)
                 {
                     button.BackColor = Color.Red;
                 }
                 pnAllTable.Controls.Add(button);
-                
+
             }
+        }
+
+        string numberTable;
+        private void Button_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("123");
+            Close();
+            //btnNameTable.Text = ((Button)sender).Text;
+            //numberTable = ((Button)sender).Tag.ToString();
+            ////ShowAllOrderMenu();
+            //var order_menus = from om in db.OrderMenus where om.idTable == numberTable select new { om.nameMenuOrder, om.unitMenuOrder, om.priceMenuOrder, om.quantity, om.sumPrice };
+            //dgOrderMenu.DataSource = order_menus.ToList();
         }
 
         private void ShowAllTable()
         {
-            var tables = from t in db.Table_Bidas select new { t.idTable, t.nameTable, t.typeTable, t.priceTable, t.statusTable, t.description };
-            dgTable.DataSource = tables;
+            var tables =db.Table_Bidas;
+            dgTable.DataSource = tables.ToList();
         }
 
         private void ShowDetailTable()
@@ -95,8 +142,9 @@ namespace ProjectCShaft
         #region Menu
         private void ShowAllMenu()
         {
-            var menus = from m in db.Menus select new { m.idMenu, m.nameMenu,m.unitMenu,m.priceMenu,m.descriptionMenu,m.status };
-            dgMenu.DataSource = menus;
+
+            var menus = db.Menus;
+            dgMenu.DataSource = menus.ToList();
         }
 
         private void ShowDetailMenu()
@@ -124,6 +172,7 @@ namespace ProjectCShaft
                 txtDV.Text = row.Cells[2].Value.ToString();
                 txtPMenu.Text = row.Cells[3].Value.ToString();
                 edit = true;
+                SumPrice();
             }
         }
 
@@ -154,6 +203,8 @@ namespace ProjectCShaft
                 MessageBox.Show("Thêm mới thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ShowAllMenu();
                 ShowDetailMenu();
+                ShowMenuInTable();
+                ShowMenu();
             }
             else //update
             {
@@ -169,6 +220,8 @@ namespace ProjectCShaft
                 MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ShowAllMenu();
                 ShowDetailMenu();
+                ShowMenuInTable();
+                ShowMenu();
             }
         }
 
@@ -185,6 +238,8 @@ namespace ProjectCShaft
                 db.SubmitChanges();
                 ShowAllMenu();
                 ShowDetailMenu();
+                ShowMenuInTable();
+                ShowMenu();
             }
         }
 
@@ -237,6 +292,8 @@ namespace ProjectCShaft
                 MessageBox.Show("Thêm mới thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ShowAllTable();
                 ShowDetailTable();
+                pnAllTable.Controls.Clear();
+                CountTable();
             }
             else //update
             {
@@ -252,12 +309,74 @@ namespace ProjectCShaft
                 MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ShowAllTable();
                 ShowDetailTable();
+                pnAllTable.Controls.Clear();
+                CountTable();
             }
         }
 
         private void dgMenuTable_Click(object sender, EventArgs e)
         {
             ShowMenu();
+        }
+
+        private void nbQuantity_ValueChanged(object sender, EventArgs e)
+        {
+            SumPrice();
+        }
+
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDeleteTable_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn có muốn xóa không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                //tìm bản ghi cần xóa
+                var p = db.Table_Bidas.FirstOrDefault(x => x.idTable == txtIdTable.Text);
+                //xóa
+                db.Table_Bidas.DeleteOnSubmit(p);
+                //ghi
+                db.SubmitChanges();
+                ShowAllTable();
+                ShowDetailTable();
+                pnAllTable.Controls.Clear();
+                CountTable();
+            }
+        }
+
+        private void btnSkip_Table_Click(object sender, EventArgs e)
+        {
+            ShowDetailTable();
+        }
+
+        private void btnCancel_Table_Click(object sender, EventArgs e)
+        {
+            tabControlMain.SelectTab(tpCLB);
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnAddToTable_Click(object sender, EventArgs e)
+        {
+            var om = new OrderMenu();
+            txtIdTable.Enabled = true;
+            om.nameMenuOrder = txtNMenu.Text;
+            om.unitMenuOrder = txtDV.Text;
+            om.priceMenuOrder = double.Parse(txtPMenu.Text);
+            om.quantity = (int)nbQuantity.Value;
+            om.sumPrice = double.Parse(txtSumPrice.Text);
+            //insert
+            db.OrderMenus.InsertOnSubmit(om);
+            //ghi
+            db.SubmitChanges();
+            MessageBox.Show("Thêm mới thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //ShowAllOrderMenu();
+            ShowDetalOrderMenu();
         }
     }
 }

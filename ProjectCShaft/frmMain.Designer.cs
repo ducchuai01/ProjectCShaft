@@ -40,8 +40,15 @@ namespace ProjectCShaft
             this.panel13 = new System.Windows.Forms.Panel();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.dgOrderMenu = new System.Windows.Forms.DataGridView();
+            this.nameMenuOrderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unitMenuOrderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceMenuOrderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sumPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orderMenuBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.projectCShaftDataSet5 = new ProjectCShaft.ProjectCShaftDataSet5();
+            this.nbQuantity = new System.Windows.Forms.NumericUpDown();
             this.label20 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
@@ -50,10 +57,10 @@ namespace ProjectCShaft
             this.txtDV = new System.Windows.Forms.TextBox();
             this.txtPMenu = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtSumPrice = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAddToTable = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
             this.btnNameTable = new System.Windows.Forms.Button();
             this.btnPrinting = new System.Windows.Forms.Button();
@@ -113,10 +120,10 @@ namespace ProjectCShaft
             this.projectCShaftDataSet1 = new ProjectCShaft.ProjectCShaftDataSet1();
             this.label8 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.metroButton1 = new MetroFramework.Controls.MetroButton();
+            this.btnCancel_Table = new MetroFramework.Controls.MetroButton();
             this.btnSaveTable = new MetroFramework.Controls.MetroButton();
-            this.metroButton3 = new MetroFramework.Controls.MetroButton();
-            this.metroButton4 = new MetroFramework.Controls.MetroButton();
+            this.btnDeleteTable = new MetroFramework.Controls.MetroButton();
+            this.btnSkip_Table = new MetroFramework.Controls.MetroButton();
             this.btnAddTable = new MetroFramework.Controls.MetroButton();
             this.metroSetPanel1 = new MetroSet_UI.Controls.MetroSetPanel();
             this.chkStatusTable = new MetroFramework.Controls.MetroCheckBox();
@@ -136,7 +143,12 @@ namespace ProjectCShaft
             this.txtIdTable = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.projectCShaftDataSet2 = new ProjectCShaft.ProjectCShaftDataSet2();
             this.menuTableAdapter = new ProjectCShaft.ProjectCShaftDataSetTableAdapters.MenuTableAdapter();
+            this.orderMenuTableAdapter = new ProjectCShaft.ProjectCShaftDataSet2TableAdapters.OrderMenuTableAdapter();
+            this.projectCShaftDataSet3 = new ProjectCShaft.ProjectCShaftDataSet3();
+            this.projectCShaftDataSet4 = new ProjectCShaft.ProjectCShaftDataSet4();
+            this.orderMenuTableAdapter1 = new ProjectCShaft.ProjectCShaftDataSet5TableAdapters.OrderMenuTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.menuBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectCShaftDataSet)).BeginInit();
             this.tabControlMain.SuspendLayout();
@@ -144,8 +156,10 @@ namespace ProjectCShaft
             this.metroTabControl1.SuspendLayout();
             this.tabAllTable.SuspendLayout();
             this.panel13.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgOrderMenu)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderMenuBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectCShaftDataSet5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nbQuantity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgMenuTable)).BeginInit();
             this.metroSetSetTabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgMenu)).BeginInit();
@@ -169,6 +183,9 @@ namespace ProjectCShaft
             this.panel10.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.projectCShaftDataSet2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectCShaftDataSet3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectCShaftDataSet4)).BeginInit();
             this.SuspendLayout();
             // 
             // menuBindingSource
@@ -260,8 +277,8 @@ namespace ProjectCShaft
             this.panel13.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panel13.Controls.Add(this.label22);
             this.panel13.Controls.Add(this.label21);
-            this.panel13.Controls.Add(this.dataGridView1);
-            this.panel13.Controls.Add(this.numericUpDown1);
+            this.panel13.Controls.Add(this.dgOrderMenu);
+            this.panel13.Controls.Add(this.nbQuantity);
             this.panel13.Controls.Add(this.label20);
             this.panel13.Controls.Add(this.label18);
             this.panel13.Controls.Add(this.label19);
@@ -270,10 +287,10 @@ namespace ProjectCShaft
             this.panel13.Controls.Add(this.txtDV);
             this.panel13.Controls.Add(this.txtPMenu);
             this.panel13.Controls.Add(this.label16);
-            this.panel13.Controls.Add(this.textBox1);
+            this.panel13.Controls.Add(this.txtSumPrice);
             this.panel13.Controls.Add(this.button3);
             this.panel13.Controls.Add(this.button2);
-            this.panel13.Controls.Add(this.button1);
+            this.panel13.Controls.Add(this.btnAddToTable);
             this.panel13.Controls.Add(this.label15);
             this.panel13.Controls.Add(this.btnNameTable);
             this.panel13.Controls.Add(this.btnPrinting);
@@ -306,35 +323,89 @@ namespace ProjectCShaft
             this.label21.TabIndex = 20;
             this.label21.Text = "label21";
             // 
-            // dataGridView1
+            // dgOrderMenu
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(866, 62);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(449, 391);
-            this.dataGridView1.TabIndex = 19;
+            this.dgOrderMenu.AllowUserToOrderColumns = true;
+            this.dgOrderMenu.AutoGenerateColumns = false;
+            this.dgOrderMenu.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgOrderMenu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgOrderMenu.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.nameMenuOrderDataGridViewTextBoxColumn,
+            this.unitMenuOrderDataGridViewTextBoxColumn,
+            this.priceMenuOrderDataGridViewTextBoxColumn,
+            this.quantityDataGridViewTextBoxColumn,
+            this.sumPriceDataGridViewTextBoxColumn});
+            this.dgOrderMenu.DataSource = this.orderMenuBindingSource;
+            this.dgOrderMenu.Location = new System.Drawing.Point(866, 62);
+            this.dgOrderMenu.Name = "dgOrderMenu";
+            this.dgOrderMenu.RowHeadersVisible = false;
+            this.dgOrderMenu.Size = new System.Drawing.Size(449, 391);
+            this.dgOrderMenu.TabIndex = 19;
             // 
-            // numericUpDown1
+            // nameMenuOrderDataGridViewTextBoxColumn
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(724, 298);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.nameMenuOrderDataGridViewTextBoxColumn.DataPropertyName = "nameMenuOrder";
+            this.nameMenuOrderDataGridViewTextBoxColumn.HeaderText = "Tên";
+            this.nameMenuOrderDataGridViewTextBoxColumn.Name = "nameMenuOrderDataGridViewTextBoxColumn";
+            // 
+            // unitMenuOrderDataGridViewTextBoxColumn
+            // 
+            this.unitMenuOrderDataGridViewTextBoxColumn.DataPropertyName = "unitMenuOrder";
+            this.unitMenuOrderDataGridViewTextBoxColumn.HeaderText = "Đ.vị";
+            this.unitMenuOrderDataGridViewTextBoxColumn.Name = "unitMenuOrderDataGridViewTextBoxColumn";
+            this.unitMenuOrderDataGridViewTextBoxColumn.Width = 50;
+            // 
+            // priceMenuOrderDataGridViewTextBoxColumn
+            // 
+            this.priceMenuOrderDataGridViewTextBoxColumn.DataPropertyName = "priceMenuOrder";
+            this.priceMenuOrderDataGridViewTextBoxColumn.HeaderText = "Giá";
+            this.priceMenuOrderDataGridViewTextBoxColumn.Name = "priceMenuOrderDataGridViewTextBoxColumn";
+            this.priceMenuOrderDataGridViewTextBoxColumn.Width = 95;
+            // 
+            // quantityDataGridViewTextBoxColumn
+            // 
+            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "quantity";
+            this.quantityDataGridViewTextBoxColumn.HeaderText = "S.lượng";
+            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
+            // 
+            // sumPriceDataGridViewTextBoxColumn
+            // 
+            this.sumPriceDataGridViewTextBoxColumn.DataPropertyName = "sumPrice";
+            this.sumPriceDataGridViewTextBoxColumn.HeaderText = "Tổng";
+            this.sumPriceDataGridViewTextBoxColumn.Name = "sumPriceDataGridViewTextBoxColumn";
+            // 
+            // orderMenuBindingSource
+            // 
+            this.orderMenuBindingSource.DataMember = "OrderMenu";
+            this.orderMenuBindingSource.DataSource = this.projectCShaftDataSet5;
+            // 
+            // projectCShaftDataSet5
+            // 
+            this.projectCShaftDataSet5.DataSetName = "ProjectCShaftDataSet5";
+            this.projectCShaftDataSet5.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // nbQuantity
+            // 
+            this.nbQuantity.Location = new System.Drawing.Point(724, 298);
+            this.nbQuantity.Maximum = new decimal(new int[] {
             1000,
             0,
             0,
             0});
-            this.numericUpDown1.Minimum = new decimal(new int[] {
+            this.nbQuantity.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(135, 23);
-            this.numericUpDown1.TabIndex = 18;
-            this.numericUpDown1.Value = new decimal(new int[] {
+            this.nbQuantity.Name = "nbQuantity";
+            this.nbQuantity.Size = new System.Drawing.Size(135, 23);
+            this.nbQuantity.TabIndex = 18;
+            this.nbQuantity.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
+            this.nbQuantity.ValueChanged += new System.EventHandler(this.nbQuantity_ValueChanged);
             // 
             // label20
             // 
@@ -410,13 +481,14 @@ namespace ProjectCShaft
             this.label16.TabIndex = 14;
             this.label16.Text = "Tổng: ";
             // 
-            // textBox1
+            // txtSumPrice
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(542, 345);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(317, 23);
-            this.textBox1.TabIndex = 13;
+            this.txtSumPrice.Enabled = false;
+            this.txtSumPrice.Location = new System.Drawing.Point(542, 345);
+            this.txtSumPrice.Name = "txtSumPrice";
+            this.txtSumPrice.Size = new System.Drawing.Size(317, 23);
+            this.txtSumPrice.TabIndex = 13;
+            this.txtSumPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // button3
             // 
@@ -438,15 +510,16 @@ namespace ProjectCShaft
             this.button2.Text = "Cập nhật";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnAddToTable
             // 
-            this.button1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(541, 371);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(177, 83);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Thêm vào bàn";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnAddToTable.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddToTable.Location = new System.Drawing.Point(541, 371);
+            this.btnAddToTable.Name = "btnAddToTable";
+            this.btnAddToTable.Size = new System.Drawing.Size(177, 83);
+            this.btnAddToTable.TabIndex = 10;
+            this.btnAddToTable.Text = "Thêm vào bàn";
+            this.btnAddToTable.UseVisualStyleBackColor = true;
+            this.btnAddToTable.Click += new System.EventHandler(this.btnAddToTable_Click);
             // 
             // label15
             // 
@@ -465,26 +538,29 @@ namespace ProjectCShaft
             this.btnNameTable.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnNameTable.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNameTable.ForeColor = System.Drawing.Color.Lime;
-            this.btnNameTable.Location = new System.Drawing.Point(609, 4);
+            this.btnNameTable.Location = new System.Drawing.Point(603, 4);
             this.btnNameTable.Name = "btnNameTable";
-            this.btnNameTable.Size = new System.Drawing.Size(314, 53);
+            this.btnNameTable.Size = new System.Drawing.Size(320, 53);
             this.btnNameTable.TabIndex = 8;
-            this.btnNameTable.Text = "Số 3";
+            this.btnNameTable.Text = "Tên bàn";
             this.btnNameTable.UseVisualStyleBackColor = false;
             // 
             // btnPrinting
             // 
+            this.btnPrinting.BackColor = System.Drawing.Color.SandyBrown;
             this.btnPrinting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrinting.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrinting.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnPrinting.Location = new System.Drawing.Point(1125, 3);
             this.btnPrinting.Name = "btnPrinting";
             this.btnPrinting.Size = new System.Drawing.Size(190, 53);
             this.btnPrinting.TabIndex = 5;
             this.btnPrinting.Text = "In hóa đơn";
-            this.btnPrinting.UseVisualStyleBackColor = true;
+            this.btnPrinting.UseVisualStyleBackColor = false;
             // 
             // btnBill
             // 
+            this.btnBill.BackColor = System.Drawing.Color.Yellow;
             this.btnBill.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBill.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBill.Location = new System.Drawing.Point(929, 4);
@@ -492,25 +568,26 @@ namespace ProjectCShaft
             this.btnBill.Size = new System.Drawing.Size(190, 53);
             this.btnBill.TabIndex = 4;
             this.btnBill.Text = "Tính tiền";
-            this.btnBill.UseVisualStyleBackColor = true;
+            this.btnBill.UseVisualStyleBackColor = false;
             // 
             // btnMoveTable
             // 
+            this.btnMoveTable.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.btnMoveTable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMoveTable.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMoveTable.Location = new System.Drawing.Point(413, 4);
+            this.btnMoveTable.Location = new System.Drawing.Point(407, 3);
             this.btnMoveTable.Name = "btnMoveTable";
             this.btnMoveTable.Size = new System.Drawing.Size(190, 53);
             this.btnMoveTable.TabIndex = 3;
             this.btnMoveTable.Text = "Chuyển bàn";
-            this.btnMoveTable.UseVisualStyleBackColor = true;
+            this.btnMoveTable.UseVisualStyleBackColor = false;
             // 
             // btnStart
             // 
             this.btnStart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btnStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStart.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStart.Location = new System.Drawing.Point(3, 4);
+            this.btnStart.Location = new System.Drawing.Point(0, 4);
             this.btnStart.Margin = new System.Windows.Forms.Padding(0);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(204, 53);
@@ -518,13 +595,14 @@ namespace ProjectCShaft
             this.btnStart.TabStop = false;
             this.btnStart.Text = "Bắt đầu";
             this.btnStart.UseVisualStyleBackColor = false;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // btnCancelOrder
             // 
             this.btnCancelOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnCancelOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelOrder.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelOrder.Location = new System.Drawing.Point(213, 4);
+            this.btnCancelOrder.Location = new System.Drawing.Point(207, 4);
             this.btnCancelOrder.Name = "btnCancelOrder";
             this.btnCancelOrder.Size = new System.Drawing.Size(194, 53);
             this.btnCancelOrder.TabIndex = 2;
@@ -639,7 +717,7 @@ namespace ProjectCShaft
             this.dgMenu.Name = "dgMenu";
             this.dgMenu.RowHeadersVisible = false;
             this.dgMenu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgMenu.Size = new System.Drawing.Size(702, 452);
+            this.dgMenu.Size = new System.Drawing.Size(907, 645);
             this.dgMenu.TabIndex = 6;
             this.dgMenu.Click += new System.EventHandler(this.dgMenu_Click);
             // 
@@ -649,34 +727,35 @@ namespace ProjectCShaft
             this.idMenuDataGridViewTextBoxColumn.HeaderText = "ID";
             this.idMenuDataGridViewTextBoxColumn.Name = "idMenuDataGridViewTextBoxColumn";
             this.idMenuDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idMenuDataGridViewTextBoxColumn.Width = 30;
+            this.idMenuDataGridViewTextBoxColumn.Width = 55;
             // 
             // nameMenuDataGridViewTextBoxColumn
             // 
             this.nameMenuDataGridViewTextBoxColumn.DataPropertyName = "nameMenu";
             this.nameMenuDataGridViewTextBoxColumn.HeaderText = "Tên đơn hàng";
             this.nameMenuDataGridViewTextBoxColumn.Name = "nameMenuDataGridViewTextBoxColumn";
-            this.nameMenuDataGridViewTextBoxColumn.Width = 150;
+            this.nameMenuDataGridViewTextBoxColumn.Width = 250;
             // 
             // unitMenuDataGridViewTextBoxColumn
             // 
             this.unitMenuDataGridViewTextBoxColumn.DataPropertyName = "unitMenu";
             this.unitMenuDataGridViewTextBoxColumn.HeaderText = "Đơn vị tính";
             this.unitMenuDataGridViewTextBoxColumn.Name = "unitMenuDataGridViewTextBoxColumn";
+            this.unitMenuDataGridViewTextBoxColumn.Width = 150;
             // 
             // priceMenuDataGridViewTextBoxColumn
             // 
             this.priceMenuDataGridViewTextBoxColumn.DataPropertyName = "priceMenu";
             this.priceMenuDataGridViewTextBoxColumn.HeaderText = "Giá tiền (Đồng)";
             this.priceMenuDataGridViewTextBoxColumn.Name = "priceMenuDataGridViewTextBoxColumn";
-            this.priceMenuDataGridViewTextBoxColumn.Width = 150;
+            this.priceMenuDataGridViewTextBoxColumn.Width = 200;
             // 
             // descriptionMenuDataGridViewTextBoxColumn
             // 
             this.descriptionMenuDataGridViewTextBoxColumn.DataPropertyName = "descriptionMenu";
             this.descriptionMenuDataGridViewTextBoxColumn.HeaderText = "Ghi chú";
             this.descriptionMenuDataGridViewTextBoxColumn.Name = "descriptionMenuDataGridViewTextBoxColumn";
-            this.descriptionMenuDataGridViewTextBoxColumn.Width = 170;
+            this.descriptionMenuDataGridViewTextBoxColumn.Width = 150;
             // 
             // statusDataGridViewCheckBoxColumn
             // 
@@ -691,7 +770,7 @@ namespace ProjectCShaft
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(715, 14);
+            this.label2.Location = new System.Drawing.Point(917, 14);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(325, 31);
             this.label2.TabIndex = 5;
@@ -705,7 +784,7 @@ namespace ProjectCShaft
             this.panel2.Controls.Add(this.btnDelete);
             this.panel2.Controls.Add(this.btnSkip);
             this.panel2.Controls.Add(this.btnAdd);
-            this.panel2.Location = new System.Drawing.Point(718, 432);
+            this.panel2.Location = new System.Drawing.Point(920, 432);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(405, 77);
             this.panel2.TabIndex = 3;
@@ -772,7 +851,7 @@ namespace ProjectCShaft
             this.metroSetPanel2.Controls.Add(this.panel3);
             this.metroSetPanel2.Controls.Add(this.panel1);
             this.metroSetPanel2.IsDerivedStyle = true;
-            this.metroSetPanel2.Location = new System.Drawing.Point(718, 53);
+            this.metroSetPanel2.Location = new System.Drawing.Point(920, 53);
             this.metroSetPanel2.Name = "metroSetPanel2";
             this.metroSetPanel2.Size = new System.Drawing.Size(405, 369);
             this.metroSetPanel2.Style = MetroSet_UI.Enums.Style.Light;
@@ -983,6 +1062,8 @@ namespace ProjectCShaft
             // 
             // dgTable
             // 
+            this.dgTable.AllowUserToAddRows = false;
+            this.dgTable.AllowUserToDeleteRows = false;
             this.dgTable.AllowUserToResizeRows = false;
             this.dgTable.AutoGenerateColumns = false;
             this.dgTable.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -1001,7 +1082,7 @@ namespace ProjectCShaft
             this.dgTable.Name = "dgTable";
             this.dgTable.RowHeadersVisible = false;
             this.dgTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgTable.Size = new System.Drawing.Size(702, 646);
+            this.dgTable.Size = new System.Drawing.Size(903, 650);
             this.dgTable.TabIndex = 11;
             this.dgTable.Click += new System.EventHandler(this.dgTable_Click);
             // 
@@ -1010,19 +1091,21 @@ namespace ProjectCShaft
             this.idTableDataGridViewTextBoxColumn.DataPropertyName = "idTable";
             this.idTableDataGridViewTextBoxColumn.HeaderText = "Mã bàn";
             this.idTableDataGridViewTextBoxColumn.Name = "idTableDataGridViewTextBoxColumn";
-            this.idTableDataGridViewTextBoxColumn.Width = 80;
+            this.idTableDataGridViewTextBoxColumn.Width = 150;
             // 
             // nameTableDataGridViewTextBoxColumn
             // 
             this.nameTableDataGridViewTextBoxColumn.DataPropertyName = "nameTable";
             this.nameTableDataGridViewTextBoxColumn.HeaderText = "Tên bàn";
             this.nameTableDataGridViewTextBoxColumn.Name = "nameTableDataGridViewTextBoxColumn";
+            this.nameTableDataGridViewTextBoxColumn.Width = 200;
             // 
             // typeTableDataGridViewTextBoxColumn
             // 
             this.typeTableDataGridViewTextBoxColumn.DataPropertyName = "typeTable";
             this.typeTableDataGridViewTextBoxColumn.HeaderText = "Kiểu bàn";
             this.typeTableDataGridViewTextBoxColumn.Name = "typeTableDataGridViewTextBoxColumn";
+            this.typeTableDataGridViewTextBoxColumn.Width = 130;
             // 
             // priceTableDataGridViewTextBoxColumn
             // 
@@ -1071,24 +1154,25 @@ namespace ProjectCShaft
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panel7.Controls.Add(this.metroButton1);
+            this.panel7.Controls.Add(this.btnCancel_Table);
             this.panel7.Controls.Add(this.btnSaveTable);
-            this.panel7.Controls.Add(this.metroButton3);
-            this.panel7.Controls.Add(this.metroButton4);
+            this.panel7.Controls.Add(this.btnDeleteTable);
+            this.panel7.Controls.Add(this.btnSkip_Table);
             this.panel7.Controls.Add(this.btnAddTable);
             this.panel7.Location = new System.Drawing.Point(915, 428);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(405, 77);
             this.panel7.TabIndex = 8;
             // 
-            // metroButton1
+            // btnCancel_Table
             // 
-            this.metroButton1.Location = new System.Drawing.Point(327, 5);
-            this.metroButton1.Name = "metroButton1";
-            this.metroButton1.Size = new System.Drawing.Size(75, 69);
-            this.metroButton1.TabIndex = 10;
-            this.metroButton1.Text = "Hủy";
-            this.metroButton1.UseSelectable = true;
+            this.btnCancel_Table.Location = new System.Drawing.Point(327, 5);
+            this.btnCancel_Table.Name = "btnCancel_Table";
+            this.btnCancel_Table.Size = new System.Drawing.Size(75, 69);
+            this.btnCancel_Table.TabIndex = 10;
+            this.btnCancel_Table.Text = "Hủy";
+            this.btnCancel_Table.UseSelectable = true;
+            this.btnCancel_Table.Click += new System.EventHandler(this.btnCancel_Table_Click);
             // 
             // btnSaveTable
             // 
@@ -1100,23 +1184,25 @@ namespace ProjectCShaft
             this.btnSaveTable.UseSelectable = true;
             this.btnSaveTable.Click += new System.EventHandler(this.btnSaveTable_Click);
             // 
-            // metroButton3
+            // btnDeleteTable
             // 
-            this.metroButton3.Location = new System.Drawing.Point(165, 5);
-            this.metroButton3.Name = "metroButton3";
-            this.metroButton3.Size = new System.Drawing.Size(75, 69);
-            this.metroButton3.TabIndex = 8;
-            this.metroButton3.Text = "Xóa";
-            this.metroButton3.UseSelectable = true;
+            this.btnDeleteTable.Location = new System.Drawing.Point(165, 5);
+            this.btnDeleteTable.Name = "btnDeleteTable";
+            this.btnDeleteTable.Size = new System.Drawing.Size(75, 69);
+            this.btnDeleteTable.TabIndex = 8;
+            this.btnDeleteTable.Text = "Xóa";
+            this.btnDeleteTable.UseSelectable = true;
+            this.btnDeleteTable.Click += new System.EventHandler(this.btnDeleteTable_Click);
             // 
-            // metroButton4
+            // btnSkip_Table
             // 
-            this.metroButton4.Location = new System.Drawing.Point(246, 5);
-            this.metroButton4.Name = "metroButton4";
-            this.metroButton4.Size = new System.Drawing.Size(75, 69);
-            this.metroButton4.TabIndex = 9;
-            this.metroButton4.Text = "Bỏ qua";
-            this.metroButton4.UseSelectable = true;
+            this.btnSkip_Table.Location = new System.Drawing.Point(246, 5);
+            this.btnSkip_Table.Name = "btnSkip_Table";
+            this.btnSkip_Table.Size = new System.Drawing.Size(75, 69);
+            this.btnSkip_Table.TabIndex = 9;
+            this.btnSkip_Table.Text = "Bỏ qua";
+            this.btnSkip_Table.UseSelectable = true;
+            this.btnSkip_Table.Click += new System.EventHandler(this.btnSkip_Table_Click);
             // 
             // btnAddTable
             // 
@@ -1154,9 +1240,9 @@ namespace ProjectCShaft
             this.chkStatusTable.AutoSize = true;
             this.chkStatusTable.Location = new System.Drawing.Point(10, 340);
             this.chkStatusTable.Name = "chkStatusTable";
-            this.chkStatusTable.Size = new System.Drawing.Size(97, 15);
+            this.chkStatusTable.Size = new System.Drawing.Size(83, 15);
             this.chkStatusTable.TabIndex = 5;
-            this.chkStatusTable.Text = "Chưa sử dụng";
+            this.chkStatusTable.Text = "Đã sử dụng";
             this.chkStatusTable.UseSelectable = true;
             // 
             // panel8
@@ -1324,9 +1410,32 @@ namespace ProjectCShaft
             this.label14.TabIndex = 7;
             this.label14.Text = "DANH SÁCH BÀN BIDA";
             // 
+            // projectCShaftDataSet2
+            // 
+            this.projectCShaftDataSet2.DataSetName = "ProjectCShaftDataSet2";
+            this.projectCShaftDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // menuTableAdapter
             // 
             this.menuTableAdapter.ClearBeforeFill = true;
+            // 
+            // orderMenuTableAdapter
+            // 
+            this.orderMenuTableAdapter.ClearBeforeFill = true;
+            // 
+            // projectCShaftDataSet3
+            // 
+            this.projectCShaftDataSet3.DataSetName = "ProjectCShaftDataSet3";
+            this.projectCShaftDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // projectCShaftDataSet4
+            // 
+            this.projectCShaftDataSet4.DataSetName = "ProjectCShaftDataSet4";
+            this.projectCShaftDataSet4.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // orderMenuTableAdapter1
+            // 
+            this.orderMenuTableAdapter1.ClearBeforeFill = true;
             // 
             // frmMain
             // 
@@ -1349,8 +1458,10 @@ namespace ProjectCShaft
             this.tabAllTable.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgOrderMenu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderMenuBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectCShaftDataSet5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nbQuantity)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgMenuTable)).EndInit();
             this.metroSetSetTabPage2.ResumeLayout(false);
             this.metroSetSetTabPage2.PerformLayout();
@@ -1388,6 +1499,9 @@ namespace ProjectCShaft
             this.panel11.PerformLayout();
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.projectCShaftDataSet2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectCShaftDataSet3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.projectCShaftDataSet4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1428,20 +1542,14 @@ namespace ProjectCShaft
         private ProjectCShaftDataSetTableAdapters.MenuTableAdapter menuTableAdapter;
         private System.Windows.Forms.TextBox txtIdMenu;
         private System.Windows.Forms.DataGridView dgMenu;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idMenuDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameMenuDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn unitMenuDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn priceMenuDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionMenuDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewCheckBoxColumn;
         private MetroSet_UI.Child.MetroSetSetTabPage metroSetSetTabPage1;
         private System.Windows.Forms.DataGridView dgTable;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel7;
-        private MetroFramework.Controls.MetroButton metroButton1;
+        private MetroFramework.Controls.MetroButton btnCancel_Table;
         private MetroFramework.Controls.MetroButton btnSaveTable;
-        private MetroFramework.Controls.MetroButton metroButton3;
-        private MetroFramework.Controls.MetroButton metroButton4;
+        private MetroFramework.Controls.MetroButton btnDeleteTable;
+        private MetroFramework.Controls.MetroButton btnSkip_Table;
         private MetroFramework.Controls.MetroButton btnAddTable;
         private MetroSet_UI.Controls.MetroSetPanel metroSetPanel1;
         private MetroFramework.Controls.MetroCheckBox chkStatusTable;
@@ -1463,12 +1571,6 @@ namespace ProjectCShaft
         private System.Windows.Forms.Label label14;
         private ProjectCShaftDataSet1 projectCShaftDataSet1;
         private System.Windows.Forms.BindingSource tableBidaBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idTableDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameTableDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn typeTableDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn priceTableDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn statusTableDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
         private System.Windows.Forms.Panel pnAllTable;
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.DataGridView dgMenuTable;
@@ -1481,9 +1583,9 @@ namespace ProjectCShaft
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAddToTable;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtSumPrice;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
@@ -1491,14 +1593,38 @@ namespace ProjectCShaft
         private System.Windows.Forms.TextBox txtNMenu;
         private System.Windows.Forms.TextBox txtDV;
         private System.Windows.Forms.TextBox txtPMenu;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown nbQuantity;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgOrderMenu;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private ProjectCShaftDataSet2 projectCShaftDataSet2;
+        private ProjectCShaftDataSet2TableAdapters.OrderMenuTableAdapter orderMenuTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idTableDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameTableDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn typeTableDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn priceTableDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn statusTableDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idMenuDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameMenuDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn unitMenuDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn priceMenuDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionMenuDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewCheckBoxColumn;
+        private ProjectCShaftDataSet3 projectCShaftDataSet3;
+        private ProjectCShaftDataSet4 projectCShaftDataSet4;
+        private ProjectCShaftDataSet5 projectCShaftDataSet5;
+        private System.Windows.Forms.BindingSource orderMenuBindingSource;
+        private ProjectCShaftDataSet5TableAdapters.OrderMenuTableAdapter orderMenuTableAdapter1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameMenuOrderDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn unitMenuOrderDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn priceMenuOrderDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sumPriceDataGridViewTextBoxColumn;
     }
 }

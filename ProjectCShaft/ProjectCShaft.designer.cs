@@ -39,6 +39,12 @@ namespace ProjectCShaft
     partial void InsertTable_Bida(Table_Bida instance);
     partial void UpdateTable_Bida(Table_Bida instance);
     partial void DeleteTable_Bida(Table_Bida instance);
+    partial void InsertOrderMenu(OrderMenu instance);
+    partial void UpdateOrderMenu(OrderMenu instance);
+    partial void DeleteOrderMenu(OrderMenu instance);
+    partial void InsertOrder_Table(Order_Table instance);
+    partial void UpdateOrder_Table(Order_Table instance);
+    partial void DeleteOrder_Table(Order_Table instance);
     #endregion
 		
 		public ProjectCShaftDataContext() : 
@@ -92,6 +98,22 @@ namespace ProjectCShaft
 			get
 			{
 				return this.GetTable<Table_Bida>();
+			}
+		}
+		
+		public System.Data.Linq.Table<OrderMenu> OrderMenus
+		{
+			get
+			{
+				return this.GetTable<OrderMenu>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Order_Table> Order_Tables
+		{
+			get
+			{
+				return this.GetTable<Order_Table>();
 			}
 		}
 	}
@@ -248,6 +270,8 @@ namespace ProjectCShaft
 		
 		private System.Nullable<bool> _status;
 		
+		private EntitySet<Order_Table> _Order_Tables;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -268,6 +292,7 @@ namespace ProjectCShaft
 		
 		public Menu()
 		{
+			this._Order_Tables = new EntitySet<Order_Table>(new Action<Order_Table>(this.attach_Order_Tables), new Action<Order_Table>(this.detach_Order_Tables));
 			OnCreated();
 		}
 		
@@ -391,6 +416,19 @@ namespace ProjectCShaft
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Menu_Order_Table", Storage="_Order_Tables", ThisKey="idMenu", OtherKey="idMenuOrder_Table")]
+		public EntitySet<Order_Table> Order_Tables
+		{
+			get
+			{
+				return this._Order_Tables;
+			}
+			set
+			{
+				this._Order_Tables.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -409,6 +447,18 @@ namespace ProjectCShaft
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_Order_Tables(Order_Table entity)
+		{
+			this.SendPropertyChanging();
+			entity.Menu = this;
+		}
+		
+		private void detach_Order_Tables(Order_Table entity)
+		{
+			this.SendPropertyChanging();
+			entity.Menu = null;
 		}
 	}
 	
@@ -430,6 +480,10 @@ namespace ProjectCShaft
 		
 		private string _description;
 		
+		private EntitySet<OrderMenu> _OrderMenus;
+		
+		private EntitySet<Order_Table> _Order_Tables;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -450,6 +504,8 @@ namespace ProjectCShaft
 		
 		public Table_Bida()
 		{
+			this._OrderMenus = new EntitySet<OrderMenu>(new Action<OrderMenu>(this.attach_OrderMenus), new Action<OrderMenu>(this.detach_OrderMenus));
+			this._Order_Tables = new EntitySet<Order_Table>(new Action<Order_Table>(this.attach_Order_Tables), new Action<Order_Table>(this.detach_Order_Tables));
 			OnCreated();
 		}
 		
@@ -569,6 +625,567 @@ namespace ProjectCShaft
 					this._description = value;
 					this.SendPropertyChanged("description");
 					this.OndescriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Table_Bida_OrderMenu", Storage="_OrderMenus", ThisKey="idTable", OtherKey="idTable")]
+		public EntitySet<OrderMenu> OrderMenus
+		{
+			get
+			{
+				return this._OrderMenus;
+			}
+			set
+			{
+				this._OrderMenus.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Table_Bida_Order_Table", Storage="_Order_Tables", ThisKey="idTable", OtherKey="idTable")]
+		public EntitySet<Order_Table> Order_Tables
+		{
+			get
+			{
+				return this._Order_Tables;
+			}
+			set
+			{
+				this._Order_Tables.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_OrderMenus(OrderMenu entity)
+		{
+			this.SendPropertyChanging();
+			entity.Table_Bida = this;
+		}
+		
+		private void detach_OrderMenus(OrderMenu entity)
+		{
+			this.SendPropertyChanging();
+			entity.Table_Bida = null;
+		}
+		
+		private void attach_Order_Tables(Order_Table entity)
+		{
+			this.SendPropertyChanging();
+			entity.Table_Bida = this;
+		}
+		
+		private void detach_Order_Tables(Order_Table entity)
+		{
+			this.SendPropertyChanging();
+			entity.Table_Bida = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.OrderMenu")]
+	public partial class OrderMenu : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _idOrderMenu;
+		
+		private string _idTable;
+		
+		private string _nameMenuOrder;
+		
+		private string _unitMenuOrder;
+		
+		private System.Nullable<double> _priceMenuOrder;
+		
+		private System.Nullable<int> _quantity;
+		
+		private System.Nullable<double> _sumPrice;
+		
+		private EntityRef<Table_Bida> _Table_Bida;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidOrderMenuChanging(int value);
+    partial void OnidOrderMenuChanged();
+    partial void OnidTableChanging(string value);
+    partial void OnidTableChanged();
+    partial void OnnameMenuOrderChanging(string value);
+    partial void OnnameMenuOrderChanged();
+    partial void OnunitMenuOrderChanging(string value);
+    partial void OnunitMenuOrderChanged();
+    partial void OnpriceMenuOrderChanging(System.Nullable<double> value);
+    partial void OnpriceMenuOrderChanged();
+    partial void OnquantityChanging(System.Nullable<int> value);
+    partial void OnquantityChanged();
+    partial void OnsumPriceChanging(System.Nullable<double> value);
+    partial void OnsumPriceChanged();
+    #endregion
+		
+		public OrderMenu()
+		{
+			this._Table_Bida = default(EntityRef<Table_Bida>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idOrderMenu", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int idOrderMenu
+		{
+			get
+			{
+				return this._idOrderMenu;
+			}
+			set
+			{
+				if ((this._idOrderMenu != value))
+				{
+					this.OnidOrderMenuChanging(value);
+					this.SendPropertyChanging();
+					this._idOrderMenu = value;
+					this.SendPropertyChanged("idOrderMenu");
+					this.OnidOrderMenuChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idTable", DbType="NVarChar(10)")]
+		public string idTable
+		{
+			get
+			{
+				return this._idTable;
+			}
+			set
+			{
+				if ((this._idTable != value))
+				{
+					if (this._Table_Bida.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidTableChanging(value);
+					this.SendPropertyChanging();
+					this._idTable = value;
+					this.SendPropertyChanged("idTable");
+					this.OnidTableChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nameMenuOrder", DbType="NVarChar(100)")]
+		public string nameMenuOrder
+		{
+			get
+			{
+				return this._nameMenuOrder;
+			}
+			set
+			{
+				if ((this._nameMenuOrder != value))
+				{
+					this.OnnameMenuOrderChanging(value);
+					this.SendPropertyChanging();
+					this._nameMenuOrder = value;
+					this.SendPropertyChanged("nameMenuOrder");
+					this.OnnameMenuOrderChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_unitMenuOrder", DbType="NVarChar(20)")]
+		public string unitMenuOrder
+		{
+			get
+			{
+				return this._unitMenuOrder;
+			}
+			set
+			{
+				if ((this._unitMenuOrder != value))
+				{
+					this.OnunitMenuOrderChanging(value);
+					this.SendPropertyChanging();
+					this._unitMenuOrder = value;
+					this.SendPropertyChanged("unitMenuOrder");
+					this.OnunitMenuOrderChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_priceMenuOrder", DbType="Float")]
+		public System.Nullable<double> priceMenuOrder
+		{
+			get
+			{
+				return this._priceMenuOrder;
+			}
+			set
+			{
+				if ((this._priceMenuOrder != value))
+				{
+					this.OnpriceMenuOrderChanging(value);
+					this.SendPropertyChanging();
+					this._priceMenuOrder = value;
+					this.SendPropertyChanged("priceMenuOrder");
+					this.OnpriceMenuOrderChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_quantity", DbType="Int")]
+		public System.Nullable<int> quantity
+		{
+			get
+			{
+				return this._quantity;
+			}
+			set
+			{
+				if ((this._quantity != value))
+				{
+					this.OnquantityChanging(value);
+					this.SendPropertyChanging();
+					this._quantity = value;
+					this.SendPropertyChanged("quantity");
+					this.OnquantityChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sumPrice", DbType="Float")]
+		public System.Nullable<double> sumPrice
+		{
+			get
+			{
+				return this._sumPrice;
+			}
+			set
+			{
+				if ((this._sumPrice != value))
+				{
+					this.OnsumPriceChanging(value);
+					this.SendPropertyChanging();
+					this._sumPrice = value;
+					this.SendPropertyChanged("sumPrice");
+					this.OnsumPriceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Table_Bida_OrderMenu", Storage="_Table_Bida", ThisKey="idTable", OtherKey="idTable", IsForeignKey=true)]
+		public Table_Bida Table_Bida
+		{
+			get
+			{
+				return this._Table_Bida.Entity;
+			}
+			set
+			{
+				Table_Bida previousValue = this._Table_Bida.Entity;
+				if (((previousValue != value) 
+							|| (this._Table_Bida.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Table_Bida.Entity = null;
+						previousValue.OrderMenus.Remove(this);
+					}
+					this._Table_Bida.Entity = value;
+					if ((value != null))
+					{
+						value.OrderMenus.Add(this);
+						this._idTable = value.idTable;
+					}
+					else
+					{
+						this._idTable = default(string);
+					}
+					this.SendPropertyChanged("Table_Bida");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Order_Table")]
+	public partial class Order_Table : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _idOrder;
+		
+		private string _idTable;
+		
+		private System.Nullable<int> _idMenuOrder_Table;
+		
+		private System.Nullable<System.DateTime> _timeStart;
+		
+		private System.Nullable<double> _sumPriceTable;
+		
+		private System.Nullable<bool> _status;
+		
+		private EntityRef<Menu> _Menu;
+		
+		private EntityRef<Table_Bida> _Table_Bida;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidOrderChanging(int value);
+    partial void OnidOrderChanged();
+    partial void OnidTableChanging(string value);
+    partial void OnidTableChanged();
+    partial void OnidMenuOrder_TableChanging(System.Nullable<int> value);
+    partial void OnidMenuOrder_TableChanged();
+    partial void OntimeStartChanging(System.Nullable<System.DateTime> value);
+    partial void OntimeStartChanged();
+    partial void OnsumPriceTableChanging(System.Nullable<double> value);
+    partial void OnsumPriceTableChanged();
+    partial void OnstatusChanging(System.Nullable<bool> value);
+    partial void OnstatusChanged();
+    #endregion
+		
+		public Order_Table()
+		{
+			this._Menu = default(EntityRef<Menu>);
+			this._Table_Bida = default(EntityRef<Table_Bida>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idOrder", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int idOrder
+		{
+			get
+			{
+				return this._idOrder;
+			}
+			set
+			{
+				if ((this._idOrder != value))
+				{
+					this.OnidOrderChanging(value);
+					this.SendPropertyChanging();
+					this._idOrder = value;
+					this.SendPropertyChanged("idOrder");
+					this.OnidOrderChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idTable", DbType="NVarChar(10)")]
+		public string idTable
+		{
+			get
+			{
+				return this._idTable;
+			}
+			set
+			{
+				if ((this._idTable != value))
+				{
+					if (this._Table_Bida.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidTableChanging(value);
+					this.SendPropertyChanging();
+					this._idTable = value;
+					this.SendPropertyChanged("idTable");
+					this.OnidTableChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idMenuOrder_Table", DbType="Int")]
+		public System.Nullable<int> idMenuOrder_Table
+		{
+			get
+			{
+				return this._idMenuOrder_Table;
+			}
+			set
+			{
+				if ((this._idMenuOrder_Table != value))
+				{
+					if (this._Menu.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnidMenuOrder_TableChanging(value);
+					this.SendPropertyChanging();
+					this._idMenuOrder_Table = value;
+					this.SendPropertyChanged("idMenuOrder_Table");
+					this.OnidMenuOrder_TableChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_timeStart", DbType="DateTime")]
+		public System.Nullable<System.DateTime> timeStart
+		{
+			get
+			{
+				return this._timeStart;
+			}
+			set
+			{
+				if ((this._timeStart != value))
+				{
+					this.OntimeStartChanging(value);
+					this.SendPropertyChanging();
+					this._timeStart = value;
+					this.SendPropertyChanged("timeStart");
+					this.OntimeStartChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sumPriceTable", DbType="Float")]
+		public System.Nullable<double> sumPriceTable
+		{
+			get
+			{
+				return this._sumPriceTable;
+			}
+			set
+			{
+				if ((this._sumPriceTable != value))
+				{
+					this.OnsumPriceTableChanging(value);
+					this.SendPropertyChanging();
+					this._sumPriceTable = value;
+					this.SendPropertyChanged("sumPriceTable");
+					this.OnsumPriceTableChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_status", DbType="Bit")]
+		public System.Nullable<bool> status
+		{
+			get
+			{
+				return this._status;
+			}
+			set
+			{
+				if ((this._status != value))
+				{
+					this.OnstatusChanging(value);
+					this.SendPropertyChanging();
+					this._status = value;
+					this.SendPropertyChanged("status");
+					this.OnstatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Menu_Order_Table", Storage="_Menu", ThisKey="idMenuOrder_Table", OtherKey="idMenu", IsForeignKey=true)]
+		public Menu Menu
+		{
+			get
+			{
+				return this._Menu.Entity;
+			}
+			set
+			{
+				Menu previousValue = this._Menu.Entity;
+				if (((previousValue != value) 
+							|| (this._Menu.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Menu.Entity = null;
+						previousValue.Order_Tables.Remove(this);
+					}
+					this._Menu.Entity = value;
+					if ((value != null))
+					{
+						value.Order_Tables.Add(this);
+						this._idMenuOrder_Table = value.idMenu;
+					}
+					else
+					{
+						this._idMenuOrder_Table = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Menu");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Table_Bida_Order_Table", Storage="_Table_Bida", ThisKey="idTable", OtherKey="idTable", IsForeignKey=true)]
+		public Table_Bida Table_Bida
+		{
+			get
+			{
+				return this._Table_Bida.Entity;
+			}
+			set
+			{
+				Table_Bida previousValue = this._Table_Bida.Entity;
+				if (((previousValue != value) 
+							|| (this._Table_Bida.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Table_Bida.Entity = null;
+						previousValue.Order_Tables.Remove(this);
+					}
+					this._Table_Bida.Entity = value;
+					if ((value != null))
+					{
+						value.Order_Tables.Add(this);
+						this._idTable = value.idTable;
+					}
+					else
+					{
+						this._idTable = default(string);
+					}
+					this.SendPropertyChanged("Table_Bida");
 				}
 			}
 		}

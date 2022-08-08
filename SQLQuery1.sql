@@ -29,12 +29,20 @@ create table Menu(
 create table Order_Table(
 	idOrder int identity primary key,
 	idTable nvarchar(10) foreign key(idTable) REFERENCES Table_Bida(idTable),
-	idMenu int foreign key(idMenu) REFERENCES Menu(idMenu),
+	idMenuOrder_Table int foreign key(idMenuOrder_Table) REFERENCES Menu(idMenu),
+	timeStart datetime,
+	sumPriceTable float,
 	status bit
 )
 
 create table OrderMenu(
-	
+	idOrderMenu int identity primary key,
+	idTable nvarchar(10) foreign key(idTable) REFERENCES Table_Bida(idTable) NOT NULL,
+	nameMenuOrder nvarchar(100),
+	unitMenuOrder nvarchar(20),
+	priceMenuOrder float,
+	quantity int,
+	sumPrice float
 )
 
 insert into Menu values(N'String Vàng','chai',10000,N'Nước ngọt',1)
@@ -43,4 +51,6 @@ insert into Account values('nvmduc','123',1)
 
 insert into Table_Bida values('B016',N'Bàn số 16','France',60000,0,N'Hết nơ')
 
-select * from Table_Bida
+insert into OrderMenu values('B02',N'Sting đỏ',N'Chai',15000,1,15000)
+
+select * from OrderMenu

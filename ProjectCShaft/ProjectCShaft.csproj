@@ -91,6 +91,26 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ProjectCShaftDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="ProjectCShaftDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProjectCShaftDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectCShaftDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProjectCShaftDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectCShaftDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProjectCShaftDataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ProjectCShaftDataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProjectCShaftDataSet5.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
@@ -138,6 +158,50 @@
     </None>
     <None Include="ProjectCShaftDataSet1.xss">
       <DependentUpon>ProjectCShaftDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="ProjectCShaftDataSet2.xsc">
+      <DependentUpon>ProjectCShaftDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="ProjectCShaftDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProjectCShaftDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProjectCShaftDataSet2.xss">
+      <DependentUpon>ProjectCShaftDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="ProjectCShaftDataSet3.xsc">
+      <DependentUpon>ProjectCShaftDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="ProjectCShaftDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProjectCShaftDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProjectCShaftDataSet3.xss">
+      <DependentUpon>ProjectCShaftDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="ProjectCShaftDataSet4.xsc">
+      <DependentUpon>ProjectCShaftDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="ProjectCShaftDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProjectCShaftDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProjectCShaftDataSet4.xss">
+      <DependentUpon>ProjectCShaftDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="ProjectCShaftDataSet5.xsc">
+      <DependentUpon>ProjectCShaftDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="ProjectCShaftDataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProjectCShaftDataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProjectCShaftDataSet5.xss">
+      <DependentUpon>ProjectCShaftDataSet5.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

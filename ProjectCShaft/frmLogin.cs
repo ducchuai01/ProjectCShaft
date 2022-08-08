@@ -40,11 +40,6 @@ namespace ProjectCShaft
             }
         }
 
-        private void metroCheckBox1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void metroButton1_Click(object sender, EventArgs e)
         {
             #region remember
