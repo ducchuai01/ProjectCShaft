@@ -27,14 +27,15 @@ namespace ProjectCShaft
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
+        [System.Obsolete]
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             this.checkBoxRemember = new MetroFramework.Controls.MetroCheckBox();
             this.btnLogin = new MetroFramework.Controls.MetroButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.txtUserName = new MetroFramework.Controls.MetroTextBox();
             this.txtPassword = new MetroFramework.Controls.MetroTextBox();
+            this.txtUserName = new MetroFramework.Controls.MetroTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,55 +62,21 @@ namespace ProjectCShaft
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.TabStop = false;
             // 
-            // txtUserName
-            // 
-            // 
-            // 
-            // 
-            this.txtUserName.CustomButton.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
-            this.txtUserName.CustomButton.ImeMode = ((System.Windows.Forms.ImeMode)(resources.GetObject("resource.ImeMode")));
-            this.txtUserName.CustomButton.Location = ((System.Drawing.Point)(resources.GetObject("resource.Location")));
-            this.txtUserName.CustomButton.Name = "";
-            this.txtUserName.CustomButton.Size = ((System.Drawing.Size)(resources.GetObject("resource.Size")));
-            this.txtUserName.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtUserName.CustomButton.TabIndex = ((int)(resources.GetObject("resource.TabIndex")));
-            this.txtUserName.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtUserName.CustomButton.UseSelectable = true;
-            this.txtUserName.CustomButton.Visible = ((bool)(resources.GetObject("resource.Visible")));
-            this.txtUserName.DisplayIcon = true;
-            this.txtUserName.Icon = global::ProjectCShaft.Properties.Resources.icons8_male_user_16;
-            this.txtUserName.Lines = new string[0];
-            resources.ApplyResources(this.txtUserName, "txtUserName");
-            this.txtUserName.MaxLength = 32767;
-            this.txtUserName.Name = "txtUserName";
-            this.txtUserName.PasswordChar = '\0';
-            this.txtUserName.PromptText = "Enter your user name";
-            this.txtUserName.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtUserName.SelectedText = "";
-            this.txtUserName.SelectionLength = 0;
-            this.txtUserName.SelectionStart = 0;
-            this.txtUserName.ShortcutsEnabled = true;
-            this.txtUserName.UseSelectable = true;
-            this.txtUserName.WaterMark = "Enter your user name";
-            this.txtUserName.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtUserName.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            this.txtUserName.Click += new System.EventHandler(this.metroTextBox1_Click);
-            // 
             // txtPassword
             // 
             // 
             // 
             // 
-            this.txtPassword.CustomButton.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
-            this.txtPassword.CustomButton.ImeMode = ((System.Windows.Forms.ImeMode)(resources.GetObject("resource.ImeMode1")));
-            this.txtPassword.CustomButton.Location = ((System.Drawing.Point)(resources.GetObject("resource.Location1")));
+            this.txtPassword.CustomButton.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+            this.txtPassword.CustomButton.ImeMode = ((System.Windows.Forms.ImeMode)(resources.GetObject("resource.ImeMode")));
+            this.txtPassword.CustomButton.Location = ((System.Drawing.Point)(resources.GetObject("resource.Location")));
             this.txtPassword.CustomButton.Name = "";
-            this.txtPassword.CustomButton.Size = ((System.Drawing.Size)(resources.GetObject("resource.Size1")));
+            this.txtPassword.CustomButton.Size = ((System.Drawing.Size)(resources.GetObject("resource.Size")));
             this.txtPassword.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtPassword.CustomButton.TabIndex = ((int)(resources.GetObject("resource.TabIndex1")));
+            this.txtPassword.CustomButton.TabIndex = ((int)(resources.GetObject("resource.TabIndex")));
             this.txtPassword.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.txtPassword.CustomButton.UseSelectable = true;
-            this.txtPassword.CustomButton.Visible = ((bool)(resources.GetObject("resource.Visible1")));
+            this.txtPassword.CustomButton.Visible = ((bool)(resources.GetObject("resource.Visible")));
             this.txtPassword.DisplayIcon = true;
             this.txtPassword.Icon = global::ProjectCShaft.Properties.Resources.icons8_security_shield_green_16;
             this.txtPassword.Lines = new string[0];
@@ -127,17 +94,49 @@ namespace ProjectCShaft
             this.txtPassword.WaterMark = "Enter your password";
             this.txtPassword.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtPassword.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            this.txtPassword.Click += new System.EventHandler(this.metroTextBox1_Click);
+            // 
+            // txtUserName
+            // 
+            // 
+            // 
+            // 
+            this.txtUserName.CustomButton.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
+            this.txtUserName.CustomButton.ImeMode = ((System.Windows.Forms.ImeMode)(resources.GetObject("resource.ImeMode1")));
+            this.txtUserName.CustomButton.Location = ((System.Drawing.Point)(resources.GetObject("resource.Location1")));
+            this.txtUserName.CustomButton.Name = "";
+            this.txtUserName.CustomButton.Size = ((System.Drawing.Size)(resources.GetObject("resource.Size1")));
+            this.txtUserName.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtUserName.CustomButton.TabIndex = ((int)(resources.GetObject("resource.TabIndex1")));
+            this.txtUserName.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtUserName.CustomButton.UseSelectable = true;
+            this.txtUserName.CustomButton.Visible = ((bool)(resources.GetObject("resource.Visible1")));
+            this.txtUserName.DisplayIcon = true;
+            this.txtUserName.Icon = global::ProjectCShaft.Properties.Resources.icons8_male_user_16;
+            this.txtUserName.Lines = new string[0];
+            resources.ApplyResources(this.txtUserName, "txtUserName");
+            this.txtUserName.MaxLength = 32767;
+            this.txtUserName.Name = "txtUserName";
+            this.txtUserName.PasswordChar = '\0';
+            this.txtUserName.PromptText = "Enter your user name";
+            this.txtUserName.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtUserName.SelectedText = "";
+            this.txtUserName.SelectionLength = 0;
+            this.txtUserName.SelectionStart = 0;
+            this.txtUserName.ShortcutsEnabled = true;
+            this.txtUserName.UseSelectable = true;
+            this.txtUserName.WaterMark = "Enter your user name";
+            this.txtUserName.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtUserName.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // frmLogin
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
+            this.Controls.Add(this.txtUserName);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.checkBoxRemember);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.txtUserName);
             this.Controls.Add(this.txtPassword);
             this.MaximizeBox = false;
             this.Name = "frmLogin";

@@ -15,12 +15,6 @@ C:\Users\Admin\source\repos\ProjectCShaft\ProjectCShaft\obj\Debug\ProjectCShaft.
 C:\Users\Admin\source\repos\ProjectCShaft\ProjectCShaft\obj\Debug\ProjectCShaft.frmMain.resources
 C:\Users\Admin\source\repos\ProjectCShaft\ProjectCShaft\obj\Debug\ProjectCShaft.frmDSthucdon.resources
 C:\Users\Admin\source\repos\ProjectCShaft\ProjectCShaft\bin\Debug\MetroSet UI.dll
-D:\C#\ProjectCShaft\ProjectCShaft\obj\Debug\ProjectCShaft.frmLogin.resources
-D:\C#\ProjectCShaft\ProjectCShaft\obj\Debug\ProjectCShaft.frmMain.resources
-D:\C#\ProjectCShaft\ProjectCShaft\obj\Debug\ProjectCShaft.Properties.Resources.resources
-D:\C#\ProjectCShaft\ProjectCShaft\obj\Debug\ProjectCShaft.csproj.GenerateResource.cache
-D:\C#\ProjectCShaft\ProjectCShaft\obj\Debug\ProjectCShaft.csproj.CoreCompileInputs.cache
-D:\C#\ProjectCShaft\ProjectCShaft\obj\Debug\ProjectCShaft.csproj.AssemblyReference.cache
 D:\C#\ProjectCShaft\ProjectCShaft\bin\Debug\ProjectCShaft.exe.config
 D:\C#\ProjectCShaft\ProjectCShaft\bin\Debug\ProjectCShaft.exe
 D:\C#\ProjectCShaft\ProjectCShaft\bin\Debug\ProjectCShaft.pdb
@@ -28,6 +22,12 @@ D:\C#\ProjectCShaft\ProjectCShaft\bin\Debug\MetroFramework.Design.dll
 D:\C#\ProjectCShaft\ProjectCShaft\bin\Debug\MetroFramework.dll
 D:\C#\ProjectCShaft\ProjectCShaft\bin\Debug\MetroFramework.Fonts.dll
 D:\C#\ProjectCShaft\ProjectCShaft\bin\Debug\MetroSet UI.dll
+D:\C#\ProjectCShaft\ProjectCShaft\obj\Debug\ProjectCShaft.frmLogin.resources
+D:\C#\ProjectCShaft\ProjectCShaft\obj\Debug\ProjectCShaft.frmMain.resources
+D:\C#\ProjectCShaft\ProjectCShaft\obj\Debug\ProjectCShaft.Properties.Resources.resources
+D:\C#\ProjectCShaft\ProjectCShaft\obj\Debug\ProjectCShaft.csproj.GenerateResource.cache
+D:\C#\ProjectCShaft\ProjectCShaft\obj\Debug\ProjectCShaft.csproj.CoreCompileInputs.cache
 D:\C#\ProjectCShaft\ProjectCShaft\obj\Debug\ProjectCShaft.csproj.CopyComplete
 D:\C#\ProjectCShaft\ProjectCShaft\obj\Debug\ProjectCShaft.exe
 D:\C#\ProjectCShaft\ProjectCShaft\obj\Debug\ProjectCShaft.pdb
+D:\C#\ProjectCShaft\ProjectCShaft\obj\Debug\ProjectCShaft.csproj.AssemblyReference.cache

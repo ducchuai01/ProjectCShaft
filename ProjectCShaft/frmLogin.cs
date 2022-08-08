@@ -13,17 +13,12 @@ namespace ProjectCShaft
     public partial class frmLogin : MetroFramework.Forms.MetroForm
     {
         ProjectCShaftDataContext db = new ProjectCShaftDataContext();
+
         public frmLogin()
         {
             InitializeComponent();
-        }
-
-
-
-
-        private void metroTextBox1_Click(object sender, EventArgs e)
-        {
-
+            txtUserName.Text = "nvmduc";
+            txtPassword.Text = "123";
         }
 
         private void Form1_Load(object sender, EventArgs e)

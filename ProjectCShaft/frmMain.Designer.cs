@@ -36,8 +36,38 @@ namespace ProjectCShaft
             this.tabControlMain = new MetroSet_UI.Controls.MetroSetTabControl();
             this.tpCLB = new MetroSet_UI.Child.MetroSetSetTabPage();
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
-            this.metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
-            this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
+            this.tabAllTable = new MetroFramework.Controls.MetroTabPage();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.txtNMenu = new System.Windows.Forms.TextBox();
+            this.txtDV = new System.Windows.Forms.TextBox();
+            this.txtPMenu = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label15 = new System.Windows.Forms.Label();
+            this.btnNameTable = new System.Windows.Forms.Button();
+            this.btnPrinting = new System.Windows.Forms.Button();
+            this.btnBill = new System.Windows.Forms.Button();
+            this.btnMoveTable = new System.Windows.Forms.Button();
+            this.btnStart = new System.Windows.Forms.Button();
+            this.btnCancelOrder = new System.Windows.Forms.Button();
+            this.dgMenuTable = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pnAllTable = new System.Windows.Forms.Panel();
             this.metroSetSetTabPage2 = new MetroSet_UI.Child.MetroSetSetTabPage();
             this.dgMenu = new System.Windows.Forms.DataGridView();
             this.idMenuDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,7 +102,7 @@ namespace ProjectCShaft
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.metroSetSetTabPage1 = new MetroSet_UI.Child.MetroSetSetTabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgTable = new System.Windows.Forms.DataGridView();
             this.idTableDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameTableDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.typeTableDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -84,10 +114,10 @@ namespace ProjectCShaft
             this.label8 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
-            this.metroButton2 = new MetroFramework.Controls.MetroButton();
+            this.btnSaveTable = new MetroFramework.Controls.MetroButton();
             this.metroButton3 = new MetroFramework.Controls.MetroButton();
             this.metroButton4 = new MetroFramework.Controls.MetroButton();
-            this.metroButton5 = new MetroFramework.Controls.MetroButton();
+            this.btnAddTable = new MetroFramework.Controls.MetroButton();
             this.metroSetPanel1 = new MetroSet_UI.Controls.MetroSetPanel();
             this.chkStatusTable = new MetroFramework.Controls.MetroCheckBox();
             this.panel8 = new System.Windows.Forms.Panel();
@@ -107,15 +137,16 @@ namespace ProjectCShaft
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.menuTableAdapter = new ProjectCShaft.ProjectCShaftDataSetTableAdapters.MenuTableAdapter();
-            this.table_BidaTableAdapter = new ProjectCShaft.ProjectCShaftDataSet1TableAdapters.Table_BidaTableAdapter();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.fdsfToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fsdfsdToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.menuBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectCShaftDataSet)).BeginInit();
             this.tabControlMain.SuspendLayout();
             this.tpCLB.SuspendLayout();
             this.metroTabControl1.SuspendLayout();
+            this.tabAllTable.SuspendLayout();
+            this.panel13.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgMenuTable)).BeginInit();
             this.metroSetSetTabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgMenu)).BeginInit();
             this.panel2.SuspendLayout();
@@ -127,7 +158,7 @@ namespace ProjectCShaft
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.metroSetSetTabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tableBidaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectCShaftDataSet1)).BeginInit();
             this.panel7.SuspendLayout();
@@ -138,7 +169,6 @@ namespace ProjectCShaft
             this.panel10.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel12.SuspendLayout();
-            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuBindingSource
@@ -167,9 +197,9 @@ namespace ProjectCShaft
             this.tabControlMain.ItemSize = new System.Drawing.Size(100, 38);
             this.tabControlMain.Location = new System.Drawing.Point(15, 70);
             this.tabControlMain.Name = "tabControlMain";
-            this.tabControlMain.SelectedIndex = 1;
+            this.tabControlMain.SelectedIndex = 0;
             this.tabControlMain.SelectedTextColor = System.Drawing.Color.White;
-            this.tabControlMain.Size = new System.Drawing.Size(1149, 582);
+            this.tabControlMain.Size = new System.Drawing.Size(1333, 732);
             this.tabControlMain.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControlMain.Speed = 100;
             this.tabControlMain.Style = MetroSet_UI.Enums.Style.Light;
@@ -179,7 +209,6 @@ namespace ProjectCShaft
             this.tabControlMain.ThemeName = "MetroLite";
             this.tabControlMain.UnselectedTextColor = System.Drawing.Color.Gray;
             this.tabControlMain.UseAnimation = false;
-            this.tabControlMain.SelectedIndexChanged += new System.EventHandler(this.metroSetTabControl1_SelectedIndexChanged);
             // 
             // tpCLB
             // 
@@ -191,7 +220,7 @@ namespace ProjectCShaft
             this.tpCLB.IsDerivedStyle = true;
             this.tpCLB.Location = new System.Drawing.Point(4, 42);
             this.tpCLB.Name = "tpCLB";
-            this.tpCLB.Size = new System.Drawing.Size(1141, 536);
+            this.tpCLB.Size = new System.Drawing.Size(1325, 686);
             this.tpCLB.Style = MetroSet_UI.Enums.Style.Light;
             this.tpCLB.StyleManager = null;
             this.tpCLB.TabIndex = 0;
@@ -202,42 +231,370 @@ namespace ProjectCShaft
             // 
             // metroTabControl1
             // 
-            this.metroTabControl1.Controls.Add(this.metroTabPage2);
-            this.metroTabControl1.Controls.Add(this.metroTabPage1);
+            this.metroTabControl1.Controls.Add(this.tabAllTable);
             this.metroTabControl1.Location = new System.Drawing.Point(3, 3);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 1;
-            this.metroTabControl1.Size = new System.Drawing.Size(1138, 443);
+            this.metroTabControl1.SelectedIndex = 0;
+            this.metroTabControl1.Size = new System.Drawing.Size(1339, 697);
             this.metroTabControl1.TabIndex = 0;
             this.metroTabControl1.UseSelectable = true;
             // 
-            // metroTabPage2
+            // tabAllTable
             // 
-            this.metroTabPage2.HorizontalScrollbarBarColor = true;
-            this.metroTabPage2.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroTabPage2.HorizontalScrollbarSize = 10;
-            this.metroTabPage2.Location = new System.Drawing.Point(4, 38);
-            this.metroTabPage2.Name = "metroTabPage2";
-            this.metroTabPage2.Size = new System.Drawing.Size(1130, 401);
-            this.metroTabPage2.TabIndex = 1;
-            this.metroTabPage2.Text = "Bàn đang hoạt động";
-            this.metroTabPage2.VerticalScrollbarBarColor = true;
-            this.metroTabPage2.VerticalScrollbarHighlightOnWheel = false;
-            this.metroTabPage2.VerticalScrollbarSize = 10;
+            this.tabAllTable.Controls.Add(this.panel13);
+            this.tabAllTable.Controls.Add(this.pnAllTable);
+            this.tabAllTable.HorizontalScrollbarBarColor = true;
+            this.tabAllTable.HorizontalScrollbarHighlightOnWheel = false;
+            this.tabAllTable.HorizontalScrollbarSize = 10;
+            this.tabAllTable.Location = new System.Drawing.Point(4, 38);
+            this.tabAllTable.Name = "tabAllTable";
+            this.tabAllTable.Size = new System.Drawing.Size(1331, 655);
+            this.tabAllTable.TabIndex = 0;
+            this.tabAllTable.Text = "Tất cả bàn";
+            this.tabAllTable.VerticalScrollbarBarColor = true;
+            this.tabAllTable.VerticalScrollbarHighlightOnWheel = false;
+            this.tabAllTable.VerticalScrollbarSize = 10;
             // 
-            // metroTabPage1
+            // panel13
             // 
-            this.metroTabPage1.HorizontalScrollbarBarColor = true;
-            this.metroTabPage1.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroTabPage1.HorizontalScrollbarSize = 10;
-            this.metroTabPage1.Location = new System.Drawing.Point(4, 38);
-            this.metroTabPage1.Name = "metroTabPage1";
-            this.metroTabPage1.Size = new System.Drawing.Size(1130, 401);
-            this.metroTabPage1.TabIndex = 0;
-            this.metroTabPage1.Text = "Tất cả bàn";
-            this.metroTabPage1.VerticalScrollbarBarColor = true;
-            this.metroTabPage1.VerticalScrollbarHighlightOnWheel = false;
-            this.metroTabPage1.VerticalScrollbarSize = 10;
+            this.panel13.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel13.Controls.Add(this.label22);
+            this.panel13.Controls.Add(this.label21);
+            this.panel13.Controls.Add(this.dataGridView1);
+            this.panel13.Controls.Add(this.numericUpDown1);
+            this.panel13.Controls.Add(this.label20);
+            this.panel13.Controls.Add(this.label18);
+            this.panel13.Controls.Add(this.label19);
+            this.panel13.Controls.Add(this.label17);
+            this.panel13.Controls.Add(this.txtNMenu);
+            this.panel13.Controls.Add(this.txtDV);
+            this.panel13.Controls.Add(this.txtPMenu);
+            this.panel13.Controls.Add(this.label16);
+            this.panel13.Controls.Add(this.textBox1);
+            this.panel13.Controls.Add(this.button3);
+            this.panel13.Controls.Add(this.button2);
+            this.panel13.Controls.Add(this.button1);
+            this.panel13.Controls.Add(this.label15);
+            this.panel13.Controls.Add(this.btnNameTable);
+            this.panel13.Controls.Add(this.btnPrinting);
+            this.panel13.Controls.Add(this.btnBill);
+            this.panel13.Controls.Add(this.btnMoveTable);
+            this.panel13.Controls.Add(this.btnStart);
+            this.panel13.Controls.Add(this.btnCancelOrder);
+            this.panel13.Controls.Add(this.dgMenuTable);
+            this.panel13.Location = new System.Drawing.Point(0, 186);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(1318, 456);
+            this.panel13.TabIndex = 3;
+            this.panel13.TabStop = true;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(539, 208);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(54, 17);
+            this.label22.TabIndex = 20;
+            this.label22.Text = "label21";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(539, 130);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(54, 17);
+            this.label21.TabIndex = 20;
+            this.label21.Text = "label21";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(866, 62);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(449, 391);
+            this.dataGridView1.TabIndex = 19;
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(724, 298);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(135, 23);
+            this.numericUpDown1.TabIndex = 18;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Times New Roman", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(799, 227);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(60, 19);
+            this.label20.TabIndex = 17;
+            this.label20.Text = "Đơn vị:";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Times New Roman", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(737, 276);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(76, 19);
+            this.label18.TabIndex = 17;
+            this.label18.Text = "Số lượng:";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Times New Roman", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(538, 227);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(40, 19);
+            this.label19.TabIndex = 16;
+            this.label19.Text = "Tên:";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Times New Roman", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(538, 275);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(68, 19);
+            this.label17.TabIndex = 16;
+            this.label17.Text = "Giá bán:";
+            // 
+            // txtNMenu
+            // 
+            this.txtNMenu.Enabled = false;
+            this.txtNMenu.Location = new System.Drawing.Point(542, 249);
+            this.txtNMenu.Name = "txtNMenu";
+            this.txtNMenu.Size = new System.Drawing.Size(176, 23);
+            this.txtNMenu.TabIndex = 15;
+            // 
+            // txtDV
+            // 
+            this.txtDV.Enabled = false;
+            this.txtDV.Location = new System.Drawing.Point(724, 249);
+            this.txtDV.Name = "txtDV";
+            this.txtDV.Size = new System.Drawing.Size(135, 23);
+            this.txtDV.TabIndex = 15;
+            // 
+            // txtPMenu
+            // 
+            this.txtPMenu.Enabled = false;
+            this.txtPMenu.Location = new System.Drawing.Point(542, 297);
+            this.txtPMenu.Name = "txtPMenu";
+            this.txtPMenu.Size = new System.Drawing.Size(176, 23);
+            this.txtPMenu.TabIndex = 15;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Times New Roman", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(806, 323);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(53, 19);
+            this.label16.TabIndex = 14;
+            this.label16.Text = "Tổng: ";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Enabled = false;
+            this.textBox1.Location = new System.Drawing.Point(542, 345);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(317, 23);
+            this.textBox1.TabIndex = 13;
+            // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(724, 415);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(135, 39);
+            this.button3.TabIndex = 12;
+            this.button3.Text = "Xóa";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(724, 371);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(135, 39);
+            this.button2.TabIndex = 11;
+            this.button2.Text = "Cập nhật";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(541, 371);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(177, 83);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "Thêm vào bàn";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.Blue;
+            this.label15.Location = new System.Drawing.Point(538, 63);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(202, 24);
+            this.label15.TabIndex = 9;
+            this.label15.Text = "Tổng tiền thanh toán:";
+            // 
+            // btnNameTable
+            // 
+            this.btnNameTable.BackColor = System.Drawing.SystemColors.Control;
+            this.btnNameTable.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnNameTable.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNameTable.ForeColor = System.Drawing.Color.Lime;
+            this.btnNameTable.Location = new System.Drawing.Point(609, 4);
+            this.btnNameTable.Name = "btnNameTable";
+            this.btnNameTable.Size = new System.Drawing.Size(314, 53);
+            this.btnNameTable.TabIndex = 8;
+            this.btnNameTable.Text = "Số 3";
+            this.btnNameTable.UseVisualStyleBackColor = false;
+            // 
+            // btnPrinting
+            // 
+            this.btnPrinting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrinting.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrinting.Location = new System.Drawing.Point(1125, 3);
+            this.btnPrinting.Name = "btnPrinting";
+            this.btnPrinting.Size = new System.Drawing.Size(190, 53);
+            this.btnPrinting.TabIndex = 5;
+            this.btnPrinting.Text = "In hóa đơn";
+            this.btnPrinting.UseVisualStyleBackColor = true;
+            // 
+            // btnBill
+            // 
+            this.btnBill.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBill.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBill.Location = new System.Drawing.Point(929, 4);
+            this.btnBill.Name = "btnBill";
+            this.btnBill.Size = new System.Drawing.Size(190, 53);
+            this.btnBill.TabIndex = 4;
+            this.btnBill.Text = "Tính tiền";
+            this.btnBill.UseVisualStyleBackColor = true;
+            // 
+            // btnMoveTable
+            // 
+            this.btnMoveTable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMoveTable.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMoveTable.Location = new System.Drawing.Point(413, 4);
+            this.btnMoveTable.Name = "btnMoveTable";
+            this.btnMoveTable.Size = new System.Drawing.Size(190, 53);
+            this.btnMoveTable.TabIndex = 3;
+            this.btnMoveTable.Text = "Chuyển bàn";
+            this.btnMoveTable.UseVisualStyleBackColor = true;
+            // 
+            // btnStart
+            // 
+            this.btnStart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStart.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStart.Location = new System.Drawing.Point(3, 4);
+            this.btnStart.Margin = new System.Windows.Forms.Padding(0);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(204, 53);
+            this.btnStart.TabIndex = 1;
+            this.btnStart.TabStop = false;
+            this.btnStart.Text = "Bắt đầu";
+            this.btnStart.UseVisualStyleBackColor = false;
+            // 
+            // btnCancelOrder
+            // 
+            this.btnCancelOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnCancelOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelOrder.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelOrder.Location = new System.Drawing.Point(213, 4);
+            this.btnCancelOrder.Name = "btnCancelOrder";
+            this.btnCancelOrder.Size = new System.Drawing.Size(194, 53);
+            this.btnCancelOrder.TabIndex = 2;
+            this.btnCancelOrder.Text = "Hủy bỏ";
+            this.btnCancelOrder.UseVisualStyleBackColor = false;
+            // 
+            // dgMenuTable
+            // 
+            this.dgMenuTable.AllowUserToOrderColumns = true;
+            this.dgMenuTable.AllowUserToResizeRows = false;
+            this.dgMenuTable.AutoGenerateColumns = false;
+            this.dgMenuTable.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgMenuTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgMenuTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5});
+            this.dgMenuTable.DataSource = this.menuBindingSource;
+            this.dgMenuTable.EnableHeadersVisualStyles = false;
+            this.dgMenuTable.Location = new System.Drawing.Point(0, 63);
+            this.dgMenuTable.Name = "dgMenuTable";
+            this.dgMenuTable.RowHeadersVisible = false;
+            this.dgMenuTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgMenuTable.Size = new System.Drawing.Size(533, 393);
+            this.dgMenuTable.TabIndex = 7;
+            this.dgMenuTable.Click += new System.EventHandler(this.dgMenuTable_Click);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "idMenu";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Mã";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 30;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "nameMenu";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Tên đơn hàng";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "unitMenu";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Đơn vị tính";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "priceMenu";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Giá tiền (Đồng)";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "descriptionMenu";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Ghi chú";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            // 
+            // pnAllTable
+            // 
+            this.pnAllTable.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pnAllTable.Location = new System.Drawing.Point(0, 0);
+            this.pnAllTable.Name = "pnAllTable";
+            this.pnAllTable.Size = new System.Drawing.Size(1318, 180);
+            this.pnAllTable.TabIndex = 2;
             // 
             // metroSetSetTabPage2
             // 
@@ -253,7 +610,7 @@ namespace ProjectCShaft
             this.metroSetSetTabPage2.IsDerivedStyle = true;
             this.metroSetSetTabPage2.Location = new System.Drawing.Point(4, 42);
             this.metroSetSetTabPage2.Name = "metroSetSetTabPage2";
-            this.metroSetSetTabPage2.Size = new System.Drawing.Size(1141, 536);
+            this.metroSetSetTabPage2.Size = new System.Drawing.Size(1325, 686);
             this.metroSetSetTabPage2.Style = MetroSet_UI.Enums.Style.Light;
             this.metroSetSetTabPage2.StyleManager = null;
             this.metroSetSetTabPage2.TabIndex = 1;
@@ -261,7 +618,6 @@ namespace ProjectCShaft
             this.metroSetSetTabPage2.ThemeAuthor = "Narwin";
             this.metroSetSetTabPage2.ThemeName = "MetroLite";
             this.metroSetSetTabPage2.ToolTipText = null;
-            this.metroSetSetTabPage2.Click += new System.EventHandler(this.metroSetSetTabPage2_Click);
             // 
             // dgMenu
             // 
@@ -282,6 +638,7 @@ namespace ProjectCShaft
             this.dgMenu.Location = new System.Drawing.Point(10, 54);
             this.dgMenu.Name = "dgMenu";
             this.dgMenu.RowHeadersVisible = false;
+            this.dgMenu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgMenu.Size = new System.Drawing.Size(702, 452);
             this.dgMenu.TabIndex = 6;
             this.dgMenu.Click += new System.EventHandler(this.dgMenu_Click);
@@ -589,7 +946,6 @@ namespace ProjectCShaft
             this.label3.Size = new System.Drawing.Size(115, 21);
             this.label3.TabIndex = 0;
             this.label3.Text = "Mã thực đơn: ";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label1
             // 
@@ -601,12 +957,11 @@ namespace ProjectCShaft
             this.label1.Size = new System.Drawing.Size(331, 31);
             this.label1.TabIndex = 0;
             this.label1.Text = "DANH SÁCH THỰC ĐƠN";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // metroSetSetTabPage1
             // 
             this.metroSetSetTabPage1.BaseColor = System.Drawing.Color.White;
-            this.metroSetSetTabPage1.Controls.Add(this.dataGridView1);
+            this.metroSetSetTabPage1.Controls.Add(this.dgTable);
             this.metroSetSetTabPage1.Controls.Add(this.label8);
             this.metroSetSetTabPage1.Controls.Add(this.panel7);
             this.metroSetSetTabPage1.Controls.Add(this.metroSetPanel1);
@@ -617,7 +972,7 @@ namespace ProjectCShaft
             this.metroSetSetTabPage1.IsDerivedStyle = true;
             this.metroSetSetTabPage1.Location = new System.Drawing.Point(4, 42);
             this.metroSetSetTabPage1.Name = "metroSetSetTabPage1";
-            this.metroSetSetTabPage1.Size = new System.Drawing.Size(1141, 536);
+            this.metroSetSetTabPage1.Size = new System.Drawing.Size(1325, 686);
             this.metroSetSetTabPage1.Style = MetroSet_UI.Enums.Style.Light;
             this.metroSetSetTabPage1.StyleManager = null;
             this.metroSetSetTabPage1.TabIndex = 2;
@@ -626,27 +981,29 @@ namespace ProjectCShaft
             this.metroSetSetTabPage1.ThemeName = "MetroLite";
             this.metroSetSetTabPage1.ToolTipText = null;
             // 
-            // dataGridView1
+            // dgTable
             // 
-            this.dataGridView1.AllowUserToResizeRows = false;
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgTable.AllowUserToResizeRows = false;
+            this.dgTable.AutoGenerateColumns = false;
+            this.dgTable.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgTable.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idTableDataGridViewTextBoxColumn,
             this.nameTableDataGridViewTextBoxColumn,
             this.typeTableDataGridViewTextBoxColumn,
             this.priceTableDataGridViewTextBoxColumn,
             this.statusTableDataGridViewCheckBoxColumn,
             this.descriptionDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.tableBidaBindingSource;
-            this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.Location = new System.Drawing.Point(9, 53);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(702, 452);
-            this.dataGridView1.TabIndex = 11;
+            this.dgTable.DataSource = this.tableBidaBindingSource;
+            this.dgTable.EnableHeadersVisualStyles = false;
+            this.dgTable.Location = new System.Drawing.Point(9, 53);
+            this.dgTable.Name = "dgTable";
+            this.dgTable.RowHeadersVisible = false;
+            this.dgTable.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgTable.Size = new System.Drawing.Size(702, 646);
+            this.dgTable.TabIndex = 11;
+            this.dgTable.Click += new System.EventHandler(this.dgTable_Click);
             // 
             // idTableDataGridViewTextBoxColumn
             // 
@@ -705,7 +1062,7 @@ namespace ProjectCShaft
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label8.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(711, 9);
+            this.label8.Location = new System.Drawing.Point(909, 10);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(308, 31);
             this.label8.TabIndex = 10;
@@ -715,11 +1072,11 @@ namespace ProjectCShaft
             // 
             this.panel7.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panel7.Controls.Add(this.metroButton1);
-            this.panel7.Controls.Add(this.metroButton2);
+            this.panel7.Controls.Add(this.btnSaveTable);
             this.panel7.Controls.Add(this.metroButton3);
             this.panel7.Controls.Add(this.metroButton4);
-            this.panel7.Controls.Add(this.metroButton5);
-            this.panel7.Location = new System.Drawing.Point(725, 437);
+            this.panel7.Controls.Add(this.btnAddTable);
+            this.panel7.Location = new System.Drawing.Point(915, 428);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(405, 77);
             this.panel7.TabIndex = 8;
@@ -733,14 +1090,15 @@ namespace ProjectCShaft
             this.metroButton1.Text = "Hủy";
             this.metroButton1.UseSelectable = true;
             // 
-            // metroButton2
+            // btnSaveTable
             // 
-            this.metroButton2.Location = new System.Drawing.Point(84, 5);
-            this.metroButton2.Name = "metroButton2";
-            this.metroButton2.Size = new System.Drawing.Size(75, 69);
-            this.metroButton2.TabIndex = 7;
-            this.metroButton2.Text = "Lưu";
-            this.metroButton2.UseSelectable = true;
+            this.btnSaveTable.Location = new System.Drawing.Point(84, 5);
+            this.btnSaveTable.Name = "btnSaveTable";
+            this.btnSaveTable.Size = new System.Drawing.Size(75, 69);
+            this.btnSaveTable.TabIndex = 7;
+            this.btnSaveTable.Text = "Lưu";
+            this.btnSaveTable.UseSelectable = true;
+            this.btnSaveTable.Click += new System.EventHandler(this.btnSaveTable_Click);
             // 
             // metroButton3
             // 
@@ -760,14 +1118,15 @@ namespace ProjectCShaft
             this.metroButton4.Text = "Bỏ qua";
             this.metroButton4.UseSelectable = true;
             // 
-            // metroButton5
+            // btnAddTable
             // 
-            this.metroButton5.Location = new System.Drawing.Point(3, 5);
-            this.metroButton5.Name = "metroButton5";
-            this.metroButton5.Size = new System.Drawing.Size(75, 69);
-            this.metroButton5.TabIndex = 6;
-            this.metroButton5.Text = "Thêm";
-            this.metroButton5.UseSelectable = true;
+            this.btnAddTable.Location = new System.Drawing.Point(3, 5);
+            this.btnAddTable.Name = "btnAddTable";
+            this.btnAddTable.Size = new System.Drawing.Size(75, 69);
+            this.btnAddTable.TabIndex = 6;
+            this.btnAddTable.Text = "Thêm";
+            this.btnAddTable.UseSelectable = true;
+            this.btnAddTable.Click += new System.EventHandler(this.btnAddTable_Click);
             // 
             // metroSetPanel1
             // 
@@ -781,7 +1140,7 @@ namespace ProjectCShaft
             this.metroSetPanel1.Controls.Add(this.panel11);
             this.metroSetPanel1.Controls.Add(this.panel12);
             this.metroSetPanel1.IsDerivedStyle = true;
-            this.metroSetPanel1.Location = new System.Drawing.Point(717, 53);
+            this.metroSetPanel1.Location = new System.Drawing.Point(915, 53);
             this.metroSetPanel1.Name = "metroSetPanel1";
             this.metroSetPanel1.Size = new System.Drawing.Size(405, 369);
             this.metroSetPanel1.Style = MetroSet_UI.Enums.Style.Light;
@@ -799,7 +1158,6 @@ namespace ProjectCShaft
             this.chkStatusTable.TabIndex = 5;
             this.chkStatusTable.Text = "Chưa sử dụng";
             this.chkStatusTable.UseSelectable = true;
-            this.chkStatusTable.CheckedChanged += new System.EventHandler(this.metroCheckBox1_CheckedChanged);
             // 
             // panel8
             // 
@@ -937,11 +1295,9 @@ namespace ProjectCShaft
             // 
             // txtIdTable
             // 
-            this.txtIdTable.BackColor = System.Drawing.SystemColors.Control;
-            this.txtIdTable.Enabled = false;
+            this.txtIdTable.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txtIdTable.Location = new System.Drawing.Point(124, 3);
             this.txtIdTable.Name = "txtIdTable";
-            this.txtIdTable.ReadOnly = true;
             this.txtIdTable.Size = new System.Drawing.Size(272, 23);
             this.txtIdTable.TabIndex = 6;
             // 
@@ -962,7 +1318,7 @@ namespace ProjectCShaft
             this.label14.AutoSize = true;
             this.label14.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label14.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(3, 9);
+            this.label14.Location = new System.Drawing.Point(3, 10);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(314, 31);
             this.label14.TabIndex = 7;
@@ -972,38 +1328,12 @@ namespace ProjectCShaft
             // 
             this.menuTableAdapter.ClearBeforeFill = true;
             // 
-            // table_BidaTableAdapter
-            // 
-            this.table_BidaTableAdapter.ClearBeforeFill = true;
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fdsfToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.ShowCheckMargin = true;
-            this.contextMenuStrip1.Size = new System.Drawing.Size(203, 48);
-            // 
-            // fdsfToolStripMenuItem
-            // 
-            this.fdsfToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fsdfsdToolStripMenuItem});
-            this.fdsfToolStripMenuItem.Name = "fdsfToolStripMenuItem";
-            this.fdsfToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
-            this.fdsfToolStripMenuItem.Text = "fdsf";
-            // 
-            // fsdfsdToolStripMenuItem
-            // 
-            this.fsdfsdToolStripMenuItem.Name = "fsdfsdToolStripMenuItem";
-            this.fsdfsdToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.fsdfsdToolStripMenuItem.Text = "fsdfsd";
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(1179, 668);
+            this.ClientSize = new System.Drawing.Size(1363, 818);
             this.Controls.Add(this.tabControlMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -1016,6 +1346,12 @@ namespace ProjectCShaft
             this.tabControlMain.ResumeLayout(false);
             this.tpCLB.ResumeLayout(false);
             this.metroTabControl1.ResumeLayout(false);
+            this.tabAllTable.ResumeLayout(false);
+            this.panel13.ResumeLayout(false);
+            this.panel13.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgMenuTable)).EndInit();
             this.metroSetSetTabPage2.ResumeLayout(false);
             this.metroSetSetTabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgMenu)).EndInit();
@@ -1035,7 +1371,7 @@ namespace ProjectCShaft
             this.panel1.PerformLayout();
             this.metroSetSetTabPage1.ResumeLayout(false);
             this.metroSetSetTabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tableBidaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectCShaftDataSet1)).EndInit();
             this.panel7.ResumeLayout(false);
@@ -1052,7 +1388,6 @@ namespace ProjectCShaft
             this.panel11.PerformLayout();
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
-            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1062,8 +1397,7 @@ namespace ProjectCShaft
         private MetroSet_UI.Controls.MetroSetTabControl tabControlMain;
         private MetroSet_UI.Child.MetroSetSetTabPage tpCLB;
         private MetroFramework.Controls.MetroTabControl metroTabControl1;
-        private MetroFramework.Controls.MetroTabPage metroTabPage1;
-        private MetroFramework.Controls.MetroTabPage metroTabPage2;
+        private MetroFramework.Controls.MetroTabPage tabAllTable;
         private MetroSet_UI.Child.MetroSetSetTabPage metroSetSetTabPage2;
         private System.Windows.Forms.Label label1;
         private MetroSet_UI.Controls.MetroSetPanel metroSetPanel2;
@@ -1101,14 +1435,14 @@ namespace ProjectCShaft
         private System.Windows.Forms.DataGridViewTextBoxColumn descriptionMenuDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewCheckBoxColumn;
         private MetroSet_UI.Child.MetroSetSetTabPage metroSetSetTabPage1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgTable;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel7;
         private MetroFramework.Controls.MetroButton metroButton1;
-        private MetroFramework.Controls.MetroButton metroButton2;
+        private MetroFramework.Controls.MetroButton btnSaveTable;
         private MetroFramework.Controls.MetroButton metroButton3;
         private MetroFramework.Controls.MetroButton metroButton4;
-        private MetroFramework.Controls.MetroButton metroButton5;
+        private MetroFramework.Controls.MetroButton btnAddTable;
         private MetroSet_UI.Controls.MetroSetPanel metroSetPanel1;
         private MetroFramework.Controls.MetroCheckBox chkStatusTable;
         private System.Windows.Forms.Panel panel8;
@@ -1129,15 +1463,42 @@ namespace ProjectCShaft
         private System.Windows.Forms.Label label14;
         private ProjectCShaftDataSet1 projectCShaftDataSet1;
         private System.Windows.Forms.BindingSource tableBidaBindingSource;
-        private ProjectCShaftDataSet1TableAdapters.Table_BidaTableAdapter table_BidaTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn idTableDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameTableDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn typeTableDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn priceTableDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn statusTableDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem fdsfToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem fsdfsdToolStripMenuItem;
+        private System.Windows.Forms.Panel pnAllTable;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.DataGridView dgMenuTable;
+        private System.Windows.Forms.Button btnMoveTable;
+        private System.Windows.Forms.Button btnStart;
+        private System.Windows.Forms.Button btnCancelOrder;
+        private System.Windows.Forms.Button btnNameTable;
+        private System.Windows.Forms.Button btnPrinting;
+        private System.Windows.Forms.Button btnBill;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox txtNMenu;
+        private System.Windows.Forms.TextBox txtDV;
+        private System.Windows.Forms.TextBox txtPMenu;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
     }
 }

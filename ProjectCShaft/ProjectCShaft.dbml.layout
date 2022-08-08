@@ -14,10 +14,10 @@
         <elementListCompartment Id="7fab401a-e893-45dd-84bf-83e29f0940bb" absoluteBounds="0.51500000000000012, 1.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="84b17fe5-b692-47a5-96ae-6eddf10cfd1e" absoluteBounds="1.75, 3.375, 2, 1.9631982421875">
+    <classShape Id="84b17fe5-b692-47a5-96ae-6eddf10cfd1e" absoluteBounds="1.75, 3.375, 2, 1.9631982421874996">
       <DataClassMoniker Name="/ProjectCShaftDataContext/Table_Bida" />
       <nestedChildShapes>
-        <elementListCompartment Id="cd1bd975-463e-4be2-ae30-b081ebee4e09" absoluteBounds="1.7650000000000001, 3.835, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="cd1bd975-463e-4be2-ae30-b081ebee4e09" absoluteBounds="1.765, 3.835, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>
