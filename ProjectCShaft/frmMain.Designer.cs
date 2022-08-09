@@ -58,8 +58,8 @@ namespace ProjectCShaft
             this.txtPMenu = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.txtSumPrice = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnDelOrderMenu = new System.Windows.Forms.Button();
+            this.btnUpdateOrderMenu = new System.Windows.Forms.Button();
             this.btnAddToTable = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
             this.btnNameTable = new System.Windows.Forms.Button();
@@ -288,8 +288,8 @@ namespace ProjectCShaft
             this.panel13.Controls.Add(this.txtPMenu);
             this.panel13.Controls.Add(this.label16);
             this.panel13.Controls.Add(this.txtSumPrice);
-            this.panel13.Controls.Add(this.button3);
-            this.panel13.Controls.Add(this.button2);
+            this.panel13.Controls.Add(this.btnDelOrderMenu);
+            this.panel13.Controls.Add(this.btnUpdateOrderMenu);
             this.panel13.Controls.Add(this.btnAddToTable);
             this.panel13.Controls.Add(this.label15);
             this.panel13.Controls.Add(this.btnNameTable);
@@ -341,6 +341,7 @@ namespace ProjectCShaft
             this.dgOrderMenu.RowHeadersVisible = false;
             this.dgOrderMenu.Size = new System.Drawing.Size(449, 391);
             this.dgOrderMenu.TabIndex = 19;
+            this.dgOrderMenu.Click += new System.EventHandler(this.dgOrderMenu_Click);
             // 
             // nameMenuOrderDataGridViewTextBoxColumn
             // 
@@ -490,25 +491,27 @@ namespace ProjectCShaft
             this.txtSumPrice.TabIndex = 13;
             this.txtSumPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // button3
+            // btnDelOrderMenu
             // 
-            this.button3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(724, 415);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(135, 39);
-            this.button3.TabIndex = 12;
-            this.button3.Text = "Xóa";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnDelOrderMenu.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelOrderMenu.Location = new System.Drawing.Point(724, 415);
+            this.btnDelOrderMenu.Name = "btnDelOrderMenu";
+            this.btnDelOrderMenu.Size = new System.Drawing.Size(135, 39);
+            this.btnDelOrderMenu.TabIndex = 12;
+            this.btnDelOrderMenu.Text = "Xóa";
+            this.btnDelOrderMenu.UseVisualStyleBackColor = true;
+            this.btnDelOrderMenu.Click += new System.EventHandler(this.btnDelOrderMenu_Click);
             // 
-            // button2
+            // btnUpdateOrderMenu
             // 
-            this.button2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(724, 371);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(135, 39);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "Cập nhật";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnUpdateOrderMenu.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateOrderMenu.Location = new System.Drawing.Point(724, 371);
+            this.btnUpdateOrderMenu.Name = "btnUpdateOrderMenu";
+            this.btnUpdateOrderMenu.Size = new System.Drawing.Size(135, 39);
+            this.btnUpdateOrderMenu.TabIndex = 11;
+            this.btnUpdateOrderMenu.Text = "Cập nhật";
+            this.btnUpdateOrderMenu.UseVisualStyleBackColor = true;
+            this.btnUpdateOrderMenu.Click += new System.EventHandler(this.btnUpdateOrderMenu_Click);
             // 
             // btnAddToTable
             // 
@@ -542,7 +545,7 @@ namespace ProjectCShaft
             this.btnNameTable.Name = "btnNameTable";
             this.btnNameTable.Size = new System.Drawing.Size(320, 53);
             this.btnNameTable.TabIndex = 8;
-            this.btnNameTable.Text = "Tên bàn";
+            this.btnNameTable.Text = "Chọn bàn";
             this.btnNameTable.UseVisualStyleBackColor = false;
             // 
             // btnPrinting
@@ -1581,8 +1584,8 @@ namespace ProjectCShaft
         private System.Windows.Forms.Button btnPrinting;
         private System.Windows.Forms.Button btnBill;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnDelOrderMenu;
+        private System.Windows.Forms.Button btnUpdateOrderMenu;
         private System.Windows.Forms.Button btnAddToTable;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox txtSumPrice;

@@ -44,7 +44,6 @@ namespace ProjectCShaft
             resources.ApplyResources(this.checkBoxRemember, "checkBoxRemember");
             this.checkBoxRemember.Name = "checkBoxRemember";
             this.checkBoxRemember.UseSelectable = true;
-            this.checkBoxRemember.CheckedChanged += new System.EventHandler(this.metroCheckBox1_CheckedChanged);
             // 
             // btnLogin
             // 

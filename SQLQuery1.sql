@@ -38,6 +38,7 @@ create table Order_Table(
 create table OrderMenu(
 	idOrderMenu int identity primary key,
 	idTable nvarchar(10) foreign key(idTable) REFERENCES Table_Bida(idTable) NOT NULL,
+	idMenuOrder int foreign key(idMenuOrder) REFERENCES Menu(idMenu) NOT NULL,
 	nameMenuOrder nvarchar(100),
 	unitMenuOrder nvarchar(20),
 	priceMenuOrder float,

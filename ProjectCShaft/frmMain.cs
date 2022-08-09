@@ -31,8 +31,14 @@ namespace ProjectCShaft
             ShowMenuInTable();
             ShowMenu();
             SumPrice();
-            ShowOrderMenuInTable();
             ShowDetalOrderMenu();
+            ShowAllOrderMenu();
+        }
+
+        private void ShowAllOrderMenu()
+        {
+            var order_menus = db.OrderMenus;
+            dgOrderMenu.DataSource = order_menus.ToList();
         }
 
         private void ShowDetalOrderMenu()
@@ -48,12 +54,6 @@ namespace ProjectCShaft
                 txtSumPrice.Text = row.Cells[4].Value.ToString();
                 edit = true;
             }
-        }
-
-        private void ShowOrderMenuInTable()
-        {
-            var order_menus = from om in db.OrderMenus select new { om.nameMenuOrder, om.unitMenuOrder, om.priceMenuOrder, om.quantity, om.sumPrice };
-            dgOrderMenu.DataSource = order_menus.ToList();
         }
 
         private void SumPrice()
@@ -102,22 +102,17 @@ namespace ProjectCShaft
                     button.BackColor = Color.Red;
                 }
                 pnAllTable.Controls.Add(button);
-
             }
         }
 
         string numberTable;
         private void Button_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("123");
-            Close();
-            //btnNameTable.Text = ((Button)sender).Text;
-            //numberTable = ((Button)sender).Tag.ToString();
-            ////ShowAllOrderMenu();
-            //var order_menus = from om in db.OrderMenus where om.idTable == numberTable select new { om.nameMenuOrder, om.unitMenuOrder, om.priceMenuOrder, om.quantity, om.sumPrice };
-            //dgOrderMenu.DataSource = order_menus.ToList();
+            btnNameTable.Text = ((Button)sender).Text;
+            numberTable = ((Button)sender).Tag.ToString();
+            var order_menus = from om in db.OrderMenus where om.idTable == numberTable select new { om.nameMenuOrder, om.unitMenuOrder, om.priceMenuOrder, om.quantity, om.sumPrice };
+            dgOrderMenu.DataSource = order_menus.ToList();
         }
-
         private void ShowAllTable()
         {
             var tables =db.Table_Bidas;
@@ -356,27 +351,64 @@ namespace ProjectCShaft
             tabControlMain.SelectTab(tpCLB);
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void btnAddToTable_Click(object sender, EventArgs e)
         {
-            var om = new OrderMenu();
-            txtIdTable.Enabled = true;
+                var om = new OrderMenu();
+                int item = (int)dgMenuTable.SelectedRows[0].Cells[0].Value;
+                txtIdTable.Enabled = true;
+                om.idMenuOrder = item;
+                om.idTable = numberTable;
+                om.nameMenuOrder = txtNMenu.Text;
+                om.unitMenuOrder = txtDV.Text;
+                om.priceMenuOrder = double.Parse(txtPMenu.Text);
+                om.quantity = (int)nbQuantity.Value;
+                om.sumPrice = double.Parse(txtSumPrice.Text);
+                //insert
+                db.OrderMenus.InsertOnSubmit(om);
+                //ghi
+                db.SubmitChanges();
+                MessageBox.Show("Thêm mới thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ShowAllOrderMenu();
+                ShowDetalOrderMenu();
+        }
+
+        private void dgOrderMenu_Click(object sender, EventArgs e)
+        {
+            ShowDetalOrderMenu();
+        }
+
+        private void btnUpdateOrderMenu_Click(object sender, EventArgs e)
+        {
+            var item = (int)dgMenuTable.SelectedRows[0].Cells[0].Value;
+            var om = db.OrderMenus.FirstOrDefault(x => x.idMenuOrder == item);
+            om.idMenuOrder = item;
+            om.idTable = numberTable;
             om.nameMenuOrder = txtNMenu.Text;
             om.unitMenuOrder = txtDV.Text;
             om.priceMenuOrder = double.Parse(txtPMenu.Text);
             om.quantity = (int)nbQuantity.Value;
             om.sumPrice = double.Parse(txtSumPrice.Text);
-            //insert
-            db.OrderMenus.InsertOnSubmit(om);
             //ghi
             db.SubmitChanges();
-            MessageBox.Show("Thêm mới thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //ShowAllOrderMenu();
+            MessageBox.Show("Cập nhật thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            ShowAllOrderMenu();
             ShowDetalOrderMenu();
+        }
+
+        private void btnDelOrderMenu_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn có muốn xóa không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                //tìm bản ghi cần xóa
+                var item = (int)dgMenuTable.SelectedRows[0].Cells[0].Value;
+                var om = db.OrderMenus.FirstOrDefault(x => x.idMenuOrder == item);
+                //xóa
+                db.OrderMenus.DeleteOnSubmit(om);
+                //ghi
+                db.SubmitChanges();
+                ShowAllOrderMenu();
+                ShowDetalOrderMenu();
+            }
         }
     }
 }

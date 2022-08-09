@@ -20,19 +20,6 @@
         <elementListCompartment Id="cd1bd975-463e-4be2-ae30-b081ebee4e09" absoluteBounds="1.765, 3.835, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="dfc2abba-00b2-411f-8f5f-e8981a073d41" absoluteBounds="6.5, 1.625, 2, 2.1554996744791666">
-      <DataClassMoniker Name="/ProjectCShaftDataContext/OrderMenu" />
-      <nestedChildShapes>
-        <elementListCompartment Id="de35af98-2cef-4402-8262-e1d4b401c415" absoluteBounds="6.515, 2.085, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <associationConnector edgePoints="[(3.75 : 3.57774983723958); (6.5 : 3.57774983723958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/ProjectCShaftDataContext/Table_Bida/Table_Bida_OrderMenu" />
-      <nodes>
-        <classShapeMoniker Id="84b17fe5-b692-47a5-96ae-6eddf10cfd1e" />
-        <classShapeMoniker Id="dfc2abba-00b2-411f-8f5f-e8981a073d41" />
-      </nodes>
-    </associationConnector>
     <classShape Id="803c97a9-b2b3-4689-a4b0-801f2e9928b0" absoluteBounds="5.25, 5, 2, 1.9631982421875">
       <DataClassMoniker Name="/ProjectCShaftDataContext/Order_Table" />
       <nestedChildShapes>
@@ -46,11 +33,31 @@
         <classShapeMoniker Id="803c97a9-b2b3-4689-a4b0-801f2e9928b0" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(3.75 : 4.42149933723958); (5.84375 : 4.42149933723958); (5.84375 : 5)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(3.75 : 4.42149933723958); (5.84375 : 4.42149933723958); (5.84375 : 5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ProjectCShaftDataContext/Table_Bida/Table_Bida_Order_Table" />
       <nodes>
         <classShapeMoniker Id="84b17fe5-b692-47a5-96ae-6eddf10cfd1e" />
         <classShapeMoniker Id="803c97a9-b2b3-4689-a4b0-801f2e9928b0" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="060b1dff-9903-4952-9742-a091820e0432" absoluteBounds="6.625, 2.25, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/ProjectCShaftDataContext/OrderMenu" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ff9159ff-7d6e-4c73-8996-c58bd7488786" absoluteBounds="6.64, 2.71, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.5 : 1.09375); (7.625 : 1.09375); (7.625 : 2.25)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ProjectCShaftDataContext/Menu/Menu_OrderMenu" />
+      <nodes>
+        <classShapeMoniker Id="9a509230-820a-418d-94c9-c007d8ad3944" />
+        <classShapeMoniker Id="060b1dff-9903-4952-9742-a091820e0432" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.75 : 3.83574966861979); (6.625 : 3.83574966861979)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ProjectCShaftDataContext/Table_Bida/Table_Bida_OrderMenu" />
+      <nodes>
+        <classShapeMoniker Id="84b17fe5-b692-47a5-96ae-6eddf10cfd1e" />
+        <classShapeMoniker Id="060b1dff-9903-4952-9742-a091820e0432" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>
