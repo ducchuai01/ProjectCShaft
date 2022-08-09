@@ -37,7 +37,7 @@ namespace ProjectCShaft
             this.tpCLB = new MetroSet_UI.Child.MetroSetSetTabPage();
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.tabAllTable = new MetroFramework.Controls.MetroTabPage();
-            this.panel13 = new System.Windows.Forms.Panel();
+            this.pnBottomMain = new System.Windows.Forms.Panel();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.dgOrderMenu = new System.Windows.Forms.DataGridView();
@@ -155,7 +155,7 @@ namespace ProjectCShaft
             this.tpCLB.SuspendLayout();
             this.metroTabControl1.SuspendLayout();
             this.tabAllTable.SuspendLayout();
-            this.panel13.SuspendLayout();
+            this.pnBottomMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgOrderMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderMenuBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectCShaftDataSet5)).BeginInit();
@@ -214,7 +214,7 @@ namespace ProjectCShaft
             this.tabControlMain.ItemSize = new System.Drawing.Size(100, 38);
             this.tabControlMain.Location = new System.Drawing.Point(15, 70);
             this.tabControlMain.Name = "tabControlMain";
-            this.tabControlMain.SelectedIndex = 0;
+            this.tabControlMain.SelectedIndex = 2;
             this.tabControlMain.SelectedTextColor = System.Drawing.Color.White;
             this.tabControlMain.Size = new System.Drawing.Size(1333, 732);
             this.tabControlMain.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
@@ -258,7 +258,7 @@ namespace ProjectCShaft
             // 
             // tabAllTable
             // 
-            this.tabAllTable.Controls.Add(this.panel13);
+            this.tabAllTable.Controls.Add(this.pnBottomMain);
             this.tabAllTable.Controls.Add(this.pnAllTable);
             this.tabAllTable.HorizontalScrollbarBarColor = true;
             this.tabAllTable.HorizontalScrollbarHighlightOnWheel = false;
@@ -272,38 +272,38 @@ namespace ProjectCShaft
             this.tabAllTable.VerticalScrollbarHighlightOnWheel = false;
             this.tabAllTable.VerticalScrollbarSize = 10;
             // 
-            // panel13
+            // pnBottomMain
             // 
-            this.panel13.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panel13.Controls.Add(this.label22);
-            this.panel13.Controls.Add(this.label21);
-            this.panel13.Controls.Add(this.dgOrderMenu);
-            this.panel13.Controls.Add(this.nbQuantity);
-            this.panel13.Controls.Add(this.label20);
-            this.panel13.Controls.Add(this.label18);
-            this.panel13.Controls.Add(this.label19);
-            this.panel13.Controls.Add(this.label17);
-            this.panel13.Controls.Add(this.txtNMenu);
-            this.panel13.Controls.Add(this.txtDV);
-            this.panel13.Controls.Add(this.txtPMenu);
-            this.panel13.Controls.Add(this.label16);
-            this.panel13.Controls.Add(this.txtSumPrice);
-            this.panel13.Controls.Add(this.btnDelOrderMenu);
-            this.panel13.Controls.Add(this.btnUpdateOrderMenu);
-            this.panel13.Controls.Add(this.btnAddToTable);
-            this.panel13.Controls.Add(this.label15);
-            this.panel13.Controls.Add(this.btnNameTable);
-            this.panel13.Controls.Add(this.btnPrinting);
-            this.panel13.Controls.Add(this.btnBill);
-            this.panel13.Controls.Add(this.btnMoveTable);
-            this.panel13.Controls.Add(this.btnStart);
-            this.panel13.Controls.Add(this.btnCancelOrder);
-            this.panel13.Controls.Add(this.dgMenuTable);
-            this.panel13.Location = new System.Drawing.Point(0, 186);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(1318, 456);
-            this.panel13.TabIndex = 3;
-            this.panel13.TabStop = true;
+            this.pnBottomMain.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pnBottomMain.Controls.Add(this.label22);
+            this.pnBottomMain.Controls.Add(this.label21);
+            this.pnBottomMain.Controls.Add(this.dgOrderMenu);
+            this.pnBottomMain.Controls.Add(this.nbQuantity);
+            this.pnBottomMain.Controls.Add(this.label20);
+            this.pnBottomMain.Controls.Add(this.label18);
+            this.pnBottomMain.Controls.Add(this.label19);
+            this.pnBottomMain.Controls.Add(this.label17);
+            this.pnBottomMain.Controls.Add(this.txtNMenu);
+            this.pnBottomMain.Controls.Add(this.txtDV);
+            this.pnBottomMain.Controls.Add(this.txtPMenu);
+            this.pnBottomMain.Controls.Add(this.label16);
+            this.pnBottomMain.Controls.Add(this.txtSumPrice);
+            this.pnBottomMain.Controls.Add(this.btnDelOrderMenu);
+            this.pnBottomMain.Controls.Add(this.btnUpdateOrderMenu);
+            this.pnBottomMain.Controls.Add(this.btnAddToTable);
+            this.pnBottomMain.Controls.Add(this.label15);
+            this.pnBottomMain.Controls.Add(this.btnNameTable);
+            this.pnBottomMain.Controls.Add(this.btnPrinting);
+            this.pnBottomMain.Controls.Add(this.btnBill);
+            this.pnBottomMain.Controls.Add(this.btnMoveTable);
+            this.pnBottomMain.Controls.Add(this.btnStart);
+            this.pnBottomMain.Controls.Add(this.btnCancelOrder);
+            this.pnBottomMain.Controls.Add(this.dgMenuTable);
+            this.pnBottomMain.Location = new System.Drawing.Point(0, 186);
+            this.pnBottomMain.Name = "pnBottomMain";
+            this.pnBottomMain.Size = new System.Drawing.Size(1318, 456);
+            this.pnBottomMain.TabIndex = 3;
+            this.pnBottomMain.TabStop = true;
             // 
             // label22
             // 
@@ -1459,8 +1459,8 @@ namespace ProjectCShaft
             this.tpCLB.ResumeLayout(false);
             this.metroTabControl1.ResumeLayout(false);
             this.tabAllTable.ResumeLayout(false);
-            this.panel13.ResumeLayout(false);
-            this.panel13.PerformLayout();
+            this.pnBottomMain.ResumeLayout(false);
+            this.pnBottomMain.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgOrderMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderMenuBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.projectCShaftDataSet5)).EndInit();
@@ -1575,7 +1575,7 @@ namespace ProjectCShaft
         private ProjectCShaftDataSet1 projectCShaftDataSet1;
         private System.Windows.Forms.BindingSource tableBidaBindingSource;
         private System.Windows.Forms.Panel pnAllTable;
-        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.Panel pnBottomMain;
         private System.Windows.Forms.DataGridView dgMenuTable;
         private System.Windows.Forms.Button btnMoveTable;
         private System.Windows.Forms.Button btnStart;

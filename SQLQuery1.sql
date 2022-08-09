@@ -29,7 +29,7 @@ create table Menu(
 create table Order_Table(
 	idOrder int identity primary key,
 	idTable nvarchar(10) foreign key(idTable) REFERENCES Table_Bida(idTable),
-	idMenuOrder_Table int foreign key(idMenuOrder_Table) REFERENCES Menu(idMenu),
+	idOrderMenu int foreign key(idOrderMenu) REFERENCES OrderMenu(idOrderMenu),
 	timeStart datetime,
 	sumPriceTable float,
 	status bit
