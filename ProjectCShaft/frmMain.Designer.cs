@@ -38,7 +38,7 @@ namespace ProjectCShaft
             this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
             this.tabAllTable = new MetroFramework.Controls.MetroTabPage();
             this.pnBottomMain = new System.Windows.Forms.Panel();
-            this.label22 = new System.Windows.Forms.Label();
+            this.lbTimeStart = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.dgOrderMenu = new System.Windows.Forms.DataGridView();
             this.nameMenuOrderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -209,12 +209,12 @@ namespace ProjectCShaft
             this.tabControlMain.Controls.Add(this.tpCLB);
             this.tabControlMain.Controls.Add(this.metroSetSetTabPage2);
             this.tabControlMain.Controls.Add(this.metroSetSetTabPage1);
-            this.tabControlMain.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.tabControlMain.Cursor = System.Windows.Forms.Cursors.Default;
             this.tabControlMain.IsDerivedStyle = true;
             this.tabControlMain.ItemSize = new System.Drawing.Size(100, 38);
             this.tabControlMain.Location = new System.Drawing.Point(15, 70);
             this.tabControlMain.Name = "tabControlMain";
-            this.tabControlMain.SelectedIndex = 2;
+            this.tabControlMain.SelectedIndex = 0;
             this.tabControlMain.SelectedTextColor = System.Drawing.Color.White;
             this.tabControlMain.Size = new System.Drawing.Size(1333, 732);
             this.tabControlMain.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
@@ -275,7 +275,7 @@ namespace ProjectCShaft
             // pnBottomMain
             // 
             this.pnBottomMain.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.pnBottomMain.Controls.Add(this.label22);
+            this.pnBottomMain.Controls.Add(this.lbTimeStart);
             this.pnBottomMain.Controls.Add(this.label21);
             this.pnBottomMain.Controls.Add(this.dgOrderMenu);
             this.pnBottomMain.Controls.Add(this.nbQuantity);
@@ -305,23 +305,25 @@ namespace ProjectCShaft
             this.pnBottomMain.TabIndex = 3;
             this.pnBottomMain.TabStop = true;
             // 
-            // label22
+            // lbTimeStart
             // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(539, 208);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(54, 17);
-            this.label22.TabIndex = 20;
-            this.label22.Text = "label21";
+            this.lbTimeStart.AutoSize = true;
+            this.lbTimeStart.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTimeStart.Location = new System.Drawing.Point(537, 201);
+            this.lbTimeStart.Name = "lbTimeStart";
+            this.lbTimeStart.Size = new System.Drawing.Size(111, 26);
+            this.lbTimeStart.TabIndex = 20;
+            this.lbTimeStart.Text = "Chọn bàn";
             // 
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(539, 130);
+            this.label21.Font = new System.Drawing.Font("Times New Roman", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(537, 182);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(54, 17);
+            this.label21.Size = new System.Drawing.Size(135, 19);
             this.label21.TabIndex = 20;
-            this.label21.Text = "label21";
+            this.label21.Text = "Thời gian bắt đầu:";
             // 
             // dgOrderMenu
             // 
@@ -422,7 +424,7 @@ namespace ProjectCShaft
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Times New Roman", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(737, 276);
+            this.label18.Location = new System.Drawing.Point(783, 275);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(76, 19);
             this.label18.TabIndex = 17;
@@ -1384,9 +1386,11 @@ namespace ProjectCShaft
             // 
             // txtIdTable
             // 
-            this.txtIdTable.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txtIdTable.BackColor = System.Drawing.SystemColors.Control;
+            this.txtIdTable.Enabled = false;
             this.txtIdTable.Location = new System.Drawing.Point(124, 3);
             this.txtIdTable.Name = "txtIdTable";
+            this.txtIdTable.ReadOnly = true;
             this.txtIdTable.Size = new System.Drawing.Size(272, 23);
             this.txtIdTable.TabIndex = 6;
             // 
@@ -1597,7 +1601,6 @@ namespace ProjectCShaft
         private System.Windows.Forms.TextBox txtDV;
         private System.Windows.Forms.TextBox txtPMenu;
         private System.Windows.Forms.NumericUpDown nbQuantity;
-        private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.DataGridView dgOrderMenu;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
@@ -1629,5 +1632,6 @@ namespace ProjectCShaft
         private System.Windows.Forms.DataGridViewTextBoxColumn priceMenuOrderDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sumPriceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Label lbTimeStart;
     }
 }

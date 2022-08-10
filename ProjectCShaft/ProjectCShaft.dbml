@@ -19,22 +19,34 @@
       <Association Name="Menu_OrderMenu" Member="OrderMenus" ThisKey="idMenu" OtherKey="idMenuOrder" Type="OrderMenu" />
     </Type>
   </Table>
+  <Table Name="dbo.Order_Table" Member="Order_Tables">
+    <Type Name="Order_Table">
+      <Column Name="idOrder" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idTable" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idOrderMenu" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="timeStart" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="sumPriceTable" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Table_Bida_Order_Table" Member="Table_Bida" ThisKey="idTable" OtherKey="idTable" Type="Table_Bida" IsForeignKey="true" />
+      <Association Name="OrderMenu_Order_Table" Member="OrderMenu" ThisKey="idOrderMenu" OtherKey="idOrderMenu" Type="OrderMenu" IsForeignKey="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.Table_Bida" Member="Table_Bidas">
     <Type Name="Table_Bida">
-      <Column Name="idTable" Type="System.String" DbType="NVarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idTable" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="nameTable" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="typeTable" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="priceTable" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
       <Column Name="statusTable" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="description" Type="System.String" DbType="NVarChar(1)" CanBeNull="true" />
-      <Association Name="Table_Bida_OrderMenu" Member="OrderMenus" ThisKey="idTable" OtherKey="idTable" Type="OrderMenu" />
+      <Column Name="description" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Association Name="Table_Bida_Order_Table" Member="Order_Tables" ThisKey="idTable" OtherKey="idTable" Type="Order_Table" />
+      <Association Name="Table_Bida_OrderMenu" Member="OrderMenus" ThisKey="idTable" OtherKey="idTable" Type="OrderMenu" />
     </Type>
   </Table>
   <Table Name="dbo.OrderMenu" Member="OrderMenus">
     <Type Name="OrderMenu">
       <Column Name="idOrderMenu" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="idTable" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="idTable" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="idMenuOrder" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="nameMenuOrder" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="unitMenuOrder" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
@@ -44,18 +56,6 @@
       <Association Name="OrderMenu_Order_Table" Member="Order_Tables" ThisKey="idOrderMenu" OtherKey="idOrderMenu" Type="Order_Table" />
       <Association Name="Menu_OrderMenu" Member="Menu" ThisKey="idMenuOrder" OtherKey="idMenu" Type="Menu" IsForeignKey="true" />
       <Association Name="Table_Bida_OrderMenu" Member="Table_Bida" ThisKey="idTable" OtherKey="idTable" Type="Table_Bida" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Order_Table" Member="Order_Tables">
-    <Type Name="Order_Table">
-      <Column Name="idOrder" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="idTable" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
-      <Column Name="idOrderMenu" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="timeStart" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="sumPriceTable" Type="System.Double" DbType="Float" CanBeNull="true" />
-      <Column Name="status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Association Name="OrderMenu_Order_Table" Member="OrderMenu" ThisKey="idOrderMenu" OtherKey="idOrderMenu" Type="OrderMenu" IsForeignKey="true" />
-      <Association Name="Table_Bida_Order_Table" Member="Table_Bida" ThisKey="idTable" OtherKey="idTable" Type="Table_Bida" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

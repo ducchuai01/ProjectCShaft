@@ -36,6 +36,8 @@ namespace ProjectCShaft
             this.dgOrderMenu.Rows.Clear();
         }
 
+       
+
         private void ShowAllOrderMenu()
         {
             var order_menus = db.OrderMenus;
@@ -95,7 +97,7 @@ namespace ProjectCShaft
                     x = i * 30 + 80*i;
                 }
                 i++;
-                Button button = new Button() { Width = 80, Height = 80,Location = new Point(x,y) ,Text = item.nameTable,BackColor = Color.Green,ForeColor = Color.White,Tag = item.idTable.ToString()};
+                Button button = new Button() { Width = 80, Height = 80,Location = new Point(x,y) ,Text = item.nameTable , BackColor = Color.Green,ForeColor = Color.White,Tag = item.idTable.ToString() };
                 button.Click += Button_Click;
                 if (item.statusTable == false)
                 {
@@ -105,15 +107,21 @@ namespace ProjectCShaft
             }
         }
 
-        string numberTable;
+        int numberTable;
         private void Button_Click(object sender, EventArgs e)
         {
             btnNameTable.Text = ((Button)sender).Text;
-            numberTable = ((Button)sender).Tag.ToString();
+            numberTable = int.Parse(((Button)sender).Tag.ToString());
             var order_menus = from om in db.OrderMenus where om.idTable == numberTable select new { om.nameMenuOrder, om.unitMenuOrder, om.priceMenuOrder, om.quantity, om.sumPrice };
             dgOrderMenu.DataSource = order_menus.ToList();
-            
+            var order_table = db.Order_Tables.FirstOrDefault(i => i.idTable == numberTable);
+            if (order_table != null)
+            {
+                var datetime = order_table.timeStart.ToString();
+                lbTimeStart.Text = datetime;
+            }
         }
+
         private void ShowAllTable()
         {
             var tables = db.Table_Bidas.Select(t => new {t.idTable,t.nameTable,t.typeTable,t.priceTable,StatusTable = t.statusTable == true ?"Đang sử dụng":"Chưa sử dụng",t.description });
@@ -200,7 +208,6 @@ namespace ProjectCShaft
         {
             if (!edit) //insert
             {
-                //tạo đối tượng product
                 var m = new Menu();
                 m.nameMenu = txtNameMenu.Text;
                 m.unitMenu = cboUnit.Text;
@@ -285,12 +292,12 @@ namespace ProjectCShaft
 
         private void btnSaveTable_Click(object sender, EventArgs e)
         {
-            if (!edit) //insert
+            var tid = db.Table_Bidas.FirstOrDefault(x => x.idTable == int.Parse(txtIdTable.Text));
+            if (!edit || tid == null) //insert
             {
                 //tạo đối tượng product
                 var t = new Table_Bida();
                 txtIdTable.Enabled = false;
-                t.idTable = txtIdTable.Text;
                 t.nameTable = txtNameTable.Text;
                 t.typeTable = txtTypeTable.Text;
                 t.priceTable = (float)txtPriceTable.Value;
@@ -309,19 +316,19 @@ namespace ProjectCShaft
             else //update
             {
                 //tìm bản ghi cần sửa
-                var t = db.Table_Bidas.FirstOrDefault(x => x.idTable == txtIdTable.Text);
-                t.nameTable = txtNameTable.Text;
-                t.typeTable = txtTypeTable.Text;
-                t.priceTable = (float)txtPriceTable.Value;
-                t.statusTable = chkStatusTable.Checked;
-                t.description = txtDescriptionTable.Text;
-                //ghi
-                db.SubmitChanges();
-                MessageBox.Show("Sửa thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ShowAllTable();
-                ShowDetailTable();
-                pnAllTable.Controls.Clear();
-                CountTable();
+                    var t = db.Table_Bidas.FirstOrDefault(x => x.idTable == int.Parse(txtIdTable.Text));
+                    t.nameTable = txtNameTable.Text;
+                    t.typeTable = txtTypeTable.Text;
+                    t.priceTable = (float)txtPriceTable.Value;
+                    t.statusTable = chkStatusTable.Checked;
+                    t.description = txtDescriptionTable.Text;
+                    //ghi
+                    db.SubmitChanges();
+                    MessageBox.Show("Cập nhật thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ShowAllTable();
+                    ShowDetailTable();
+                    pnAllTable.Controls.Clear();
+                    CountTable();
             }
         }
 
@@ -337,7 +344,18 @@ namespace ProjectCShaft
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-
+            var o_t = new Order_Table();
+            o_t.idTable = numberTable;
+            o_t.timeStart = DateTime.Now;
+            var t = db.Table_Bidas.FirstOrDefault(x => x.idTable == numberTable);
+            t.statusTable = true;
+            ShowAllTable();
+            ShowDetailTable();
+            pnAllTable.Controls.Clear();
+            CountTable();
+            db.Order_Tables.InsertOnSubmit(o_t);
+            db.SubmitChanges();
+            MessageBox.Show("Bàn đã hoạt động", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btnDeleteTable_Click(object sender, EventArgs e)
@@ -345,7 +363,7 @@ namespace ProjectCShaft
             if (MessageBox.Show("Bạn có muốn xóa không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 //tìm bản ghi cần xóa
-                var p = db.Table_Bidas.FirstOrDefault(x => x.idTable == txtIdTable.Text);
+                var p = db.Table_Bidas.FirstOrDefault(x => x.idTable == int.Parse(txtIdTable.Text));
                 //xóa
                 db.Table_Bidas.DeleteOnSubmit(p);
                 //ghi
@@ -367,27 +385,30 @@ namespace ProjectCShaft
             tabControlMain.SelectTab(tpCLB);
         }
 
+        private List<OrderMenu> GetMenuTableById(int id)
+        {
+            return db.OrderMenus.Where(i => i.idTable == id).ToList();
+        }
         private void btnAddToTable_Click(object sender, EventArgs e)
         {
-            if (numberTable != null || txtNMenu.Text != null)
+            if (numberTable != null)
             {
-                int item = (int)dgMenuTable.SelectedRows[0].Cells[0].Value;
                 var om = new OrderMenu();
+                int item = (int)dgMenuTable.SelectedRows[0].Cells[0].Value;
                 txtIdTable.Enabled = true;
                 om.idMenuOrder = item;
                 om.idTable = numberTable;
                 om.nameMenuOrder = txtNMenu.Text;
                 om.unitMenuOrder = txtDV.Text;
-                om.priceMenuOrder = double.Parse(txtPMenu.Text));
+                om.priceMenuOrder = double.Parse(txtPMenu.Text);
                 om.quantity = (int)nbQuantity.Value;
                 om.sumPrice = double.Parse(txtSumPrice.Text);
                 //insert
                 db.OrderMenus.InsertOnSubmit(om);
-                //ghi
                 db.SubmitChanges();
+                var getid = GetMenuTableById(numberTable);
+                dgOrderMenu.DataSource = getid;
                 MessageBox.Show("Thêm mới thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ShowAllOrderMenu();
-                ShowDetalOrderMenu();
             }
             else
             {
@@ -402,7 +423,6 @@ namespace ProjectCShaft
 
         private void btnUpdateOrderMenu_Click(object sender, EventArgs e)
         {
-            
                 var item = (int)dgMenuTable.SelectedRows[0].Cells[0].Value;
                 var om = db.OrderMenus.FirstOrDefault(x => x.idMenuOrder == item);
                 om.idMenuOrder = item;
@@ -417,8 +437,6 @@ namespace ProjectCShaft
                 MessageBox.Show("Cập nhật thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ShowAllOrderMenu();
                 ShowDetalOrderMenu();
-            
-            
         }
 
         private void btnDelOrderMenu_Click(object sender, EventArgs e)
@@ -436,7 +454,6 @@ namespace ProjectCShaft
                 ShowDetalOrderMenu();
             }
         }
-
     }
 }
 
