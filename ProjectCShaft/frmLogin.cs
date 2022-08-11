@@ -56,7 +56,7 @@ namespace ProjectCShaft
                 frmMain frmMain = new frmMain();
                 this.Hide();
                 frmMain.ShowDialog();
-                this.Show();
+                this.Close();
             }
             else
             {

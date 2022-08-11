@@ -33,10 +33,7 @@ namespace ProjectCShaft
             ShowDetalOrderMenu();
             ShowAllOrderMenu();
             this.dgOrderMenu.DataSource = null;
-            this.dgOrderMenu.Rows.Clear();
         }
-
-       
 
         private void ShowAllOrderMenu()
         {
@@ -112,13 +109,19 @@ namespace ProjectCShaft
         {
             btnNameTable.Text = ((Button)sender).Text;
             numberTable = int.Parse(((Button)sender).Tag.ToString());
-            var order_menus = from om in db.OrderMenus where om.idTable == numberTable select new { om.nameMenuOrder, om.unitMenuOrder, om.priceMenuOrder, om.quantity, om.sumPrice };
-            dgOrderMenu.DataSource = order_menus.ToList();
-            var order_table = db.Order_Tables.FirstOrDefault(i => i.idTable == numberTable);
+            var order_table = db.Order_Tables.FirstOrDefault(i => i.idTable == numberTable && i.status == false);
             if (order_table != null)
             {
+                var order_menus = from om in db.OrderMenus where om.idTable == numberTable select new { om.nameMenuOrder, om.unitMenuOrder, om.priceMenuOrder, om.quantity, om.sumPrice };
+                dgOrderMenu.DataSource = order_menus.ToList();
+
                 var datetime = order_table.timeStart.ToString();
                 lbTimeStart.Text = datetime;
+            }
+            else
+            {
+                lbTimeStart.Text = "";
+                this.dgOrderMenu.DataSource = null;
             }
         }
 
@@ -206,7 +209,7 @@ namespace ProjectCShaft
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (!edit) //insert
+            if (string.IsNullOrEmpty(txtIdMenu.Text)) //insert
             {
                 var m = new Menu();
                 m.nameMenu = txtNameMenu.Text;
@@ -292,8 +295,7 @@ namespace ProjectCShaft
 
         private void btnSaveTable_Click(object sender, EventArgs e)
         {
-            var tid = db.Table_Bidas.FirstOrDefault(x => x.idTable == int.Parse(txtIdTable.Text));
-            if (!edit || tid == null) //insert
+            if (string.IsNullOrEmpty(txtIdTable.Text)) //insert
             {
                 //tạo đối tượng product
                 var t = new Table_Bida();
@@ -344,18 +346,28 @@ namespace ProjectCShaft
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            var o_t = new Order_Table();
-            o_t.idTable = numberTable;
-            o_t.timeStart = DateTime.Now;
-            var t = db.Table_Bidas.FirstOrDefault(x => x.idTable == numberTable);
-            t.statusTable = true;
-            ShowAllTable();
-            ShowDetailTable();
-            pnAllTable.Controls.Clear();
-            CountTable();
-            db.Order_Tables.InsertOnSubmit(o_t);
-            db.SubmitChanges();
-            MessageBox.Show("Bàn đã hoạt động", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            try
+            {
+                var o_t = new Order_Table();
+                o_t.idTable = numberTable;
+                o_t.timeStart = DateTime.Now;
+                o_t.status = false;
+                var t = db.Table_Bidas.FirstOrDefault(x => x.idTable == numberTable);
+                t.statusTable = true;
+                ShowAllTable();
+                ShowDetailTable();
+                pnAllTable.Controls.Clear();
+                CountTable();
+                db.Order_Tables.InsertOnSubmit(o_t);
+                db.SubmitChanges();
+                MessageBox.Show("Bàn đã hoạt động", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                lbTimeStart.Text = o_t.timeStart.ToString();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Vui lòng chọn bàn", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            
         }
 
         private void btnDeleteTable_Click(object sender, EventArgs e)
@@ -391,27 +403,48 @@ namespace ProjectCShaft
         }
         private void btnAddToTable_Click(object sender, EventArgs e)
         {
-            if (numberTable != null)
+            try
             {
-                var om = new OrderMenu();
-                int item = (int)dgMenuTable.SelectedRows[0].Cells[0].Value;
-                txtIdTable.Enabled = true;
-                om.idMenuOrder = item;
-                om.idTable = numberTable;
-                om.nameMenuOrder = txtNMenu.Text;
-                om.unitMenuOrder = txtDV.Text;
-                om.priceMenuOrder = double.Parse(txtPMenu.Text);
-                om.quantity = (int)nbQuantity.Value;
-                om.sumPrice = double.Parse(txtSumPrice.Text);
-                //insert
-                db.OrderMenus.InsertOnSubmit(om);
-                db.SubmitChanges();
-                var getid = GetMenuTableById(numberTable);
-                dgOrderMenu.DataSource = getid;
-                MessageBox.Show("Thêm mới thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                var getOrder = db.Order_Tables.ToList().LastOrDefault(x => x.idTable == numberTable && x.status == false);
+                if (getOrder != null)
+                {
+                    int item = (int)dgMenuTable.SelectedRows[0].Cells[0].Value;
+                    var om = db.OrderMenus.FirstOrDefault(x => x.idTable == numberTable && x.idMenuOrder == item);
+                    var getItem = db.Menus.FirstOrDefault(x => x.idMenu == item);
+                    txtIdTable.Enabled = true;
+                    if (om == null)
+                    {
+                        om = new OrderMenu();
+                        om.idMenuOrder = item;
+                        om.idTable = numberTable;
+                        om.idOrder = getOrder.idOrder;
+                        om.nameMenuOrder = txtNMenu.Text;
+                        om.unitMenuOrder = txtDV.Text;
+                        om.priceMenuOrder = double.Parse(txtPMenu.Text);
+                        om.quantity = (int)nbQuantity.Value;
+                        om.sumPrice = double.Parse(txtSumPrice.Text);
+                        //insert
+                        db.OrderMenus.InsertOnSubmit(om);
+                    }
+                    else
+                    {
+                        om.quantity += (int)nbQuantity.Value;
+                        om.sumPrice = om.quantity * getItem.priceMenu;
+                    }
+
+                    db.SubmitChanges();
+                    var getid = GetMenuTableById(numberTable);
+                    dgOrderMenu.DataSource = getid;
+                    MessageBox.Show("Thêm mới thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Bàn trống", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
             }
-            else
+            catch (Exception ex)
             {
+
                 MessageBox.Show("Vui lòng chọn bàn", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
@@ -444,15 +477,44 @@ namespace ProjectCShaft
             if (MessageBox.Show("Bạn có muốn xóa không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 //tìm bản ghi cần xóa
-                var item = (int)dgMenuTable.SelectedRows[0].Cells[0].Value;
-                var om = db.OrderMenus.FirstOrDefault(x => x.idMenuOrder == item);
+                string item = dgOrderMenu.SelectedRows[0].Cells[0].Value.ToString();
+                var om = db.OrderMenus.FirstOrDefault(x => x.idTable == numberTable && x.Menu.nameMenu == item);
                 //xóa
-                db.OrderMenus.DeleteOnSubmit(om);
+                if (om != null)
+                {
+                    db.OrderMenus.DeleteOnSubmit(om);
+                    db.SubmitChanges();
+                }
                 //ghi
-                db.SubmitChanges();
+                
                 ShowAllOrderMenu();
                 ShowDetalOrderMenu();
             }
+        }
+
+        private void btnBill_Click(object sender, EventArgs e)
+        {
+            var getOrder = db.Order_Tables.ToList().LastOrDefault(x => x.idTable == numberTable);
+            var timeEnd = DateTime.Now;
+            var getTotalTime = (int)(timeEnd - getOrder.timeStart).Value.TotalSeconds;
+            int totalTimePrice = (int)(getTotalTime * getOrder.Table_Bida.priceTable / 60 / 60);
+            var getOrderItem = db.OrderMenus.Where(x => x.idTable == numberTable && x.idOrder == getOrder.idOrder);
+            double totalItem = 0;
+            foreach (var item in getOrderItem)
+            {
+                totalItem += (double)item.sumPrice;
+            }
+            double totalBill = totalTimePrice + totalItem;
+            getOrder.status = true;
+            getOrder.sumPriceTable = totalBill;
+            getOrder.timeEnd = timeEnd;
+            getOrder.Table_Bida.statusTable = false;
+            db.SubmitChanges();
+            MessageBox.Show("Tổng bill " + getOrder.Table_Bida.nameTable + " là: " + totalBill + " VND", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            lbTimeStart.Text = "";
+            dgOrderMenu.DataSource = null;
+            pnAllTable.Controls.OfType<Button>().FirstOrDefault(x => x.Tag.ToString() == numberTable.ToString()).BackColor = Color.Red;
         }
     }
 }

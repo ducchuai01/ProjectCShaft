@@ -26,7 +26,8 @@ namespace ProjectCShaft.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=localhost;Initial Catalog=ProjectCShaft;User ID=sa;Password=nvmduc")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=localhost;Initial Catalog=ProjectCShaft;Persist Security Info=True;Us" +
+            "er ID=sa;Password=nvmduc")]
         public string ProjectCShaftConnectionString {
             get {
                 return ((string)(this["ProjectCShaftConnectionString"]));

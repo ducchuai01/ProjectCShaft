@@ -46,6 +46,7 @@ namespace ProjectCShaft
             this.priceMenuOrderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sumPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idOrderMenu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.orderMenuBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.projectCShaftDataSet5 = new ProjectCShaft.ProjectCShaftDataSet5();
             this.nbQuantity = new System.Windows.Forms.NumericUpDown();
@@ -63,9 +64,7 @@ namespace ProjectCShaft
             this.btnAddToTable = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
             this.btnNameTable = new System.Windows.Forms.Button();
-            this.btnPrinting = new System.Windows.Forms.Button();
             this.btnBill = new System.Windows.Forms.Button();
-            this.btnMoveTable = new System.Windows.Forms.Button();
             this.btnStart = new System.Windows.Forms.Button();
             this.btnCancelOrder = new System.Windows.Forms.Button();
             this.dgMenuTable = new System.Windows.Forms.DataGridView();
@@ -209,7 +208,7 @@ namespace ProjectCShaft
             this.tabControlMain.Controls.Add(this.tpCLB);
             this.tabControlMain.Controls.Add(this.metroSetSetTabPage2);
             this.tabControlMain.Controls.Add(this.metroSetSetTabPage1);
-            this.tabControlMain.Cursor = System.Windows.Forms.Cursors.Default;
+            this.tabControlMain.Cursor = System.Windows.Forms.Cursors.Hand;
             this.tabControlMain.IsDerivedStyle = true;
             this.tabControlMain.ItemSize = new System.Drawing.Size(100, 38);
             this.tabControlMain.Location = new System.Drawing.Point(15, 70);
@@ -293,9 +292,7 @@ namespace ProjectCShaft
             this.pnBottomMain.Controls.Add(this.btnAddToTable);
             this.pnBottomMain.Controls.Add(this.label15);
             this.pnBottomMain.Controls.Add(this.btnNameTable);
-            this.pnBottomMain.Controls.Add(this.btnPrinting);
             this.pnBottomMain.Controls.Add(this.btnBill);
-            this.pnBottomMain.Controls.Add(this.btnMoveTable);
             this.pnBottomMain.Controls.Add(this.btnStart);
             this.pnBottomMain.Controls.Add(this.btnCancelOrder);
             this.pnBottomMain.Controls.Add(this.dgMenuTable);
@@ -311,9 +308,9 @@ namespace ProjectCShaft
             this.lbTimeStart.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTimeStart.Location = new System.Drawing.Point(537, 201);
             this.lbTimeStart.Name = "lbTimeStart";
-            this.lbTimeStart.Size = new System.Drawing.Size(111, 26);
+            this.lbTimeStart.Size = new System.Drawing.Size(18, 26);
             this.lbTimeStart.TabIndex = 20;
-            this.lbTimeStart.Text = "Chọn bàn";
+            this.lbTimeStart.Text = " ";
             // 
             // label21
             // 
@@ -336,11 +333,13 @@ namespace ProjectCShaft
             this.unitMenuOrderDataGridViewTextBoxColumn,
             this.priceMenuOrderDataGridViewTextBoxColumn,
             this.quantityDataGridViewTextBoxColumn,
-            this.sumPriceDataGridViewTextBoxColumn});
+            this.sumPriceDataGridViewTextBoxColumn,
+            this.idOrderMenu});
             this.dgOrderMenu.DataSource = this.orderMenuBindingSource;
             this.dgOrderMenu.Location = new System.Drawing.Point(866, 62);
             this.dgOrderMenu.Name = "dgOrderMenu";
             this.dgOrderMenu.RowHeadersVisible = false;
+            this.dgOrderMenu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgOrderMenu.Size = new System.Drawing.Size(449, 391);
             this.dgOrderMenu.TabIndex = 19;
             this.dgOrderMenu.Click += new System.EventHandler(this.dgOrderMenu_Click);
@@ -376,6 +375,14 @@ namespace ProjectCShaft
             this.sumPriceDataGridViewTextBoxColumn.DataPropertyName = "sumPrice";
             this.sumPriceDataGridViewTextBoxColumn.HeaderText = "Tổng";
             this.sumPriceDataGridViewTextBoxColumn.Name = "sumPriceDataGridViewTextBoxColumn";
+            // 
+            // idOrderMenu
+            // 
+            this.idOrderMenu.DataPropertyName = "idOrderMenu";
+            this.idOrderMenu.HeaderText = "ID";
+            this.idOrderMenu.Name = "idOrderMenu";
+            this.idOrderMenu.ReadOnly = true;
+            this.idOrderMenu.Visible = false;
             // 
             // orderMenuBindingSource
             // 
@@ -550,19 +557,6 @@ namespace ProjectCShaft
             this.btnNameTable.Text = "Chọn bàn";
             this.btnNameTable.UseVisualStyleBackColor = false;
             // 
-            // btnPrinting
-            // 
-            this.btnPrinting.BackColor = System.Drawing.Color.SandyBrown;
-            this.btnPrinting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrinting.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrinting.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnPrinting.Location = new System.Drawing.Point(1125, 3);
-            this.btnPrinting.Name = "btnPrinting";
-            this.btnPrinting.Size = new System.Drawing.Size(190, 53);
-            this.btnPrinting.TabIndex = 5;
-            this.btnPrinting.Text = "In hóa đơn";
-            this.btnPrinting.UseVisualStyleBackColor = false;
-            // 
             // btnBill
             // 
             this.btnBill.BackColor = System.Drawing.Color.Yellow;
@@ -570,22 +564,11 @@ namespace ProjectCShaft
             this.btnBill.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBill.Location = new System.Drawing.Point(929, 4);
             this.btnBill.Name = "btnBill";
-            this.btnBill.Size = new System.Drawing.Size(190, 53);
+            this.btnBill.Size = new System.Drawing.Size(386, 53);
             this.btnBill.TabIndex = 4;
             this.btnBill.Text = "Tính tiền";
             this.btnBill.UseVisualStyleBackColor = false;
-            // 
-            // btnMoveTable
-            // 
-            this.btnMoveTable.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnMoveTable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMoveTable.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMoveTable.Location = new System.Drawing.Point(407, 3);
-            this.btnMoveTable.Name = "btnMoveTable";
-            this.btnMoveTable.Size = new System.Drawing.Size(190, 53);
-            this.btnMoveTable.TabIndex = 3;
-            this.btnMoveTable.Text = "Chuyển bàn";
-            this.btnMoveTable.UseVisualStyleBackColor = false;
+            this.btnBill.Click += new System.EventHandler(this.btnBill_Click);
             // 
             // btnStart
             // 
@@ -595,7 +578,7 @@ namespace ProjectCShaft
             this.btnStart.Location = new System.Drawing.Point(0, 4);
             this.btnStart.Margin = new System.Windows.Forms.Padding(0);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(204, 53);
+            this.btnStart.Size = new System.Drawing.Size(318, 53);
             this.btnStart.TabIndex = 1;
             this.btnStart.TabStop = false;
             this.btnStart.Text = "Bắt đầu";
@@ -607,9 +590,9 @@ namespace ProjectCShaft
             this.btnCancelOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnCancelOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelOrder.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelOrder.Location = new System.Drawing.Point(207, 4);
+            this.btnCancelOrder.Location = new System.Drawing.Point(321, 4);
             this.btnCancelOrder.Name = "btnCancelOrder";
-            this.btnCancelOrder.Size = new System.Drawing.Size(194, 53);
+            this.btnCancelOrder.Size = new System.Drawing.Size(276, 53);
             this.btnCancelOrder.TabIndex = 2;
             this.btnCancelOrder.Text = "Hủy bỏ";
             this.btnCancelOrder.UseVisualStyleBackColor = false;
@@ -840,7 +823,7 @@ namespace ProjectCShaft
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 69);
             this.btnAdd.TabIndex = 6;
-            this.btnAdd.Text = "Thêm";
+            this.btnAdd.Text = "Làm mới";
             this.btnAdd.UseSelectable = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -1215,7 +1198,7 @@ namespace ProjectCShaft
             this.btnAddTable.Name = "btnAddTable";
             this.btnAddTable.Size = new System.Drawing.Size(75, 69);
             this.btnAddTable.TabIndex = 6;
-            this.btnAddTable.Text = "Thêm";
+            this.btnAddTable.Text = "Làm mới";
             this.btnAddTable.UseSelectable = true;
             this.btnAddTable.Click += new System.EventHandler(this.btnAddTable_Click);
             // 
@@ -1581,11 +1564,9 @@ namespace ProjectCShaft
         private System.Windows.Forms.Panel pnAllTable;
         private System.Windows.Forms.Panel pnBottomMain;
         private System.Windows.Forms.DataGridView dgMenuTable;
-        private System.Windows.Forms.Button btnMoveTable;
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Button btnCancelOrder;
         private System.Windows.Forms.Button btnNameTable;
-        private System.Windows.Forms.Button btnPrinting;
         private System.Windows.Forms.Button btnBill;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Button btnDelOrderMenu;
@@ -1627,11 +1608,12 @@ namespace ProjectCShaft
         private ProjectCShaftDataSet5 projectCShaftDataSet5;
         private System.Windows.Forms.BindingSource orderMenuBindingSource;
         private ProjectCShaftDataSet5TableAdapters.OrderMenuTableAdapter orderMenuTableAdapter1;
+        private System.Windows.Forms.Label lbTimeStart;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameMenuOrderDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn unitMenuOrderDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn priceMenuOrderDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sumPriceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Label lbTimeStart;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idOrderMenu;
     }
 }
